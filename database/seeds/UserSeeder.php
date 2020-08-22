@@ -10,6 +10,7 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->delete();
 
+        // TODO: Este usuário está dando problema com o passport.
         $user = User::create([
             'name'     => 'Tok',
             'email'    => 'contato@tok.com',
