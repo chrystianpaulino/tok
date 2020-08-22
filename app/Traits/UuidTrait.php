@@ -10,7 +10,7 @@ trait UuidTrait
     {
         static::creating(function ($model) {
             $model->incrementing = false;
-            $model->keyType      = 'string';
+            // $model->keyType      = 'string';
 
             $model->id = Uuid::uuid4();
         });
