@@ -23,7 +23,7 @@ class Conversation extends Model
 
     public function cliente()
     {
-        $this->belongsTo(Cliente::class);
+        $this->belongsTo(Client::class);
     }
 
     public function department()

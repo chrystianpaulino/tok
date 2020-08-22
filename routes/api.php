@@ -28,8 +28,12 @@ Route::middleware('auth:api')->group(function() {
         Route::get('logout'     ,'AuthController@logout'            )->name('logout');
         Route::get('user/me'    ,'AuthController@user'              )->name('user.me');
 
-        Route::namespace('Api\Master')->group(function () {
+        Route::namespace('Master')->group(function () {
             // Controllers Within The "App\Http\Controllers\Api\Master" Namespace
+
+            Route::resources([
+                'clients' => 'ClientController',
+            ]);
 
         });
 
