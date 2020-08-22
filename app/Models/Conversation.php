@@ -15,12 +15,30 @@ class Conversation extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'name',
         'channel_id',
+        'department_id',
+        'cliente_id',
+        'name',
         'cpf',
         'telefone',
         'status',
     ];
+
+    protected $appends  = ['statusFormatted'];
+
+    public static $status = [
+        '01' => 'Esperando Atendimento',
+        '02' => 'Em Atendimento',
+        '03' => 'Finalizada'
+    ];
+
+    public function getStatusFormattedAttribute()
+    {
+        return [
+            'codigo' => $this->status ? $this->status : '01',
+            'titulo' => self::$status[$this->status ? $this->status : '01'],
+        ];
+    }
 
     public function cliente()
     {

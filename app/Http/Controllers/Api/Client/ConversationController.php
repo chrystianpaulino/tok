@@ -28,7 +28,10 @@ class ConversationController extends Controller
     {
         try {
             $request->validate([
-                'name' => 'required',
+                'name'          => 'required',
+                'telefone'      => 'required',
+                'cpf'           => 'required',
+                'department_id' => 'required',
             ]);
 
             $result = $this->service->store($request->all());

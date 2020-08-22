@@ -20,7 +20,7 @@ Route::namespace('Api')->group(function () {
     Route::post('/login'        , 'AuthController@login'            )->name('login');
 });
 
-Route::middleware('auth:api')->group(function() {
+//Route::middleware('auth:api')->group(function() {
 
     /* AUTH ROUTES */
     Route::namespace('Api')->group(function () {
@@ -40,12 +40,13 @@ Route::middleware('auth:api')->group(function() {
             Route::resources([
                 'channels'      => 'ChannelController',
                 'departments'   => 'DepartmentController',
+                'conversations' => 'ConversationController',
             ]);
         });
 
     });
 
-});
+//});
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
