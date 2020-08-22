@@ -11,8 +11,6 @@ class Cliente extends Model
 {
     use SoftDeletes, UuidTrait;
 
-    public $incrementing = false;
-
     protected $table = 'clientes';
 
     protected $dates = ['deleted_at'];
