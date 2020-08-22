@@ -23,8 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc8f05d8-ccd1-4165-b45f-91838c39f17d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Cliente/AgentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Cliente/AgentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ChannelService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ChannelService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Master/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Master/ClientController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,15 +177,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Services" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="LogHighlighting" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Repositories" />
       <recent name="$PROJECT_DIR$/app/Services" />
+      <recent name="$PROJECT_DIR$/app/Repositories" />
       <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$" />
@@ -401,7 +400,35 @@
       <option name="project" value="LOCAL" />
       <updated>1598102319407</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="feat(services): agent service with controller refactoring">
+      <created>1598102511555</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1598102511555</updated>
+    </task>
+    <task id="LOCAL-00028" summary="feat(services): controller refactoring">
+      <created>1598102624738</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1598102624738</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix(services): repository import">
+      <created>1598102725972</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1598102725972</updated>
+    </task>
+    <task id="LOCAL-00030" summary="feat(services): does not use repository in controller">
+      <created>1598102765118</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1598102765118</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,9 +450,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(database): add raw migrations" />
-    <MESSAGE value="feat(database): add user seed" />
-    <MESSAGE value="feat(user): add uuid trait" />
     <MESSAGE value="feat(user): move user model to model path" />
     <MESSAGE value="chore(factory): remove unused dependency" />
     <MESSAGE value="style(migrations): format" />
@@ -447,7 +471,11 @@
     <MESSAGE value="feat(repositories): user roles" />
     <MESSAGE value="chore(repositories): change base to abstracts path" />
     <MESSAGE value="chore(services): change base to abstracts path" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore(services): change base to abstracts path" />
+    <MESSAGE value="feat(services): agent service with controller refactoring" />
+    <MESSAGE value="feat(services): controller refactoring" />
+    <MESSAGE value="fix(services): repository import" />
+    <MESSAGE value="feat(services): does not use repository in controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(services): does not use repository in controller" />
   </component>
   <component name="WindowStateProjectService">
     <state x="761" y="239" width="389" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1598101527975">
@@ -468,10 +496,10 @@
     </state>
     <state x="655" y="161" width="504" height="626" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598101449818" />
     <state x="704" y="239" width="504" height="626" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076394134" />
-    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2" timestamp="1598102319294">
+    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2" timestamp="1598102765033">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598102319294" />
+    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598102765033" />
     <state x="511" y="113" width="960" height="797" key="CommitChangelistDialog2/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076879485" />
     <state x="269" y="340" width="819" height="736" key="CommitChangelistDialog2/275.1080.1366.768/0.340.1920.740@0.340.1920.740" timestamp="1598054611649" />
     <state x="99" y="128" width="1722" height="853" key="DiffContextDialog" timestamp="1598062304316">
@@ -523,10 +551,10 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="842" y="472" width="228" height="161" key="VCS.EditChangelistDialog/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598077316453" />
-    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2" timestamp="1598102332518">
+    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2" timestamp="1598102766076">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598102332518" />
+    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598102766076" />
     <state x="539" y="288" width="802" height="532" key="Vcs.Push.Dialog.v2/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076886765" />
     <state x="278" y="446" width="802" height="524" key="Vcs.Push.Dialog.v2/275.1080.1366.768/0.340.1920.740@0.340.1920.740" timestamp="1598054613633" />
     <state x="768" y="471" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598102059888">

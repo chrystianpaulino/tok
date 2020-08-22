@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Client;
+use App\Repositories\Abstracts\BaseRepository;
 
 final class ClientRepository extends BaseRepository
 {
