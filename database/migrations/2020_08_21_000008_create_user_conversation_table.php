@@ -18,7 +18,6 @@ class CreateUserConversationTable extends Migration
         Schema::create('user_conversation', function (Blueprint $table) {
             $table->uuid('user_id')->index();
             $table->uuid('conversation_id')->index();
-            $table->softDeletes();
 
             $table->foreign('user_id')
                 ->references('id')

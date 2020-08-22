@@ -18,7 +18,6 @@ class CreateChannelDepartmentTable extends Migration
         Schema::create('channel_department', function (Blueprint $table) {
             $table->uuid('channel_id')->index();
             $table->uuid('department_id')->index();
-            $table->softDeletes();
 
             $table->foreign('channel_id')
                 ->references('id')

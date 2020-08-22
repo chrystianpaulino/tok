@@ -20,6 +20,7 @@ class CreateDepartmentsTable extends Migration
             $table->uuid('cliente_id')->index();
             $table->string('name')->nullable();
             $table->boolean('status')->default(true);
+            $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('cliente_id')

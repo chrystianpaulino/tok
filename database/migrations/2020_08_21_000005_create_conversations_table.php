@@ -24,6 +24,7 @@ class CreateConversationsTable extends Migration
             $table->string('cpf');
             $table->string('telefone');
             $table->string('status', 2)->default('01');
+            $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('channel_id')

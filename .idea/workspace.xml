@@ -23,7 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc8f05d8-ccd1-4165-b45f-91838c39f17d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Master/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Master/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_21_000001_create_clientes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_21_000001_create_clientes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_21_000002_create_channels_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_21_000002_create_channels_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_21_000003_create_cliente_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_21_000003_create_cliente_user_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_21_000004_create_departments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_21_000004_create_departments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_21_000005_create_conversations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_21_000005_create_conversations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_21_000006_create_channel_department_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_21_000006_create_channel_department_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_21_000007_create_user_department_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_21_000007_create_user_department_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_21_000008_create_user_conversation_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_21_000008_create_user_conversation_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -428,7 +435,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598102765118</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="fix(repositories): base repo import">
+      <created>1598102835437</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1598102835437</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix(repositories): remove method fluent return types">
+      <created>1598102982262</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1598102982262</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,8 +471,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(user): move user model to model path" />
-    <MESSAGE value="chore(factory): remove unused dependency" />
     <MESSAGE value="style(migrations): format" />
     <MESSAGE value="feat(channel): create model" />
     <MESSAGE value="feat(cliente): create model with relationships" />
@@ -475,7 +494,9 @@
     <MESSAGE value="feat(services): controller refactoring" />
     <MESSAGE value="fix(services): repository import" />
     <MESSAGE value="feat(services): does not use repository in controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(services): does not use repository in controller" />
+    <MESSAGE value="fix(repositories): base repo import" />
+    <MESSAGE value="fix(repositories): remove method fluent return types" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(repositories): remove method fluent return types" />
   </component>
   <component name="WindowStateProjectService">
     <state x="761" y="239" width="389" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1598101527975">
@@ -496,10 +517,10 @@
     </state>
     <state x="655" y="161" width="504" height="626" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598101449818" />
     <state x="704" y="239" width="504" height="626" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076394134" />
-    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2" timestamp="1598102765033">
+    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2" timestamp="1598102982188">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598102765033" />
+    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598102982188" />
     <state x="511" y="113" width="960" height="797" key="CommitChangelistDialog2/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076879485" />
     <state x="269" y="340" width="819" height="736" key="CommitChangelistDialog2/275.1080.1366.768/0.340.1920.740@0.340.1920.740" timestamp="1598054611649" />
     <state x="99" y="128" width="1722" height="853" key="DiffContextDialog" timestamp="1598062304316">
@@ -551,10 +572,10 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="842" y="472" width="228" height="161" key="VCS.EditChangelistDialog/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598077316453" />
-    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2" timestamp="1598102766076">
+    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2" timestamp="1598102983367">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598102766076" />
+    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598102983367" />
     <state x="539" y="288" width="802" height="532" key="Vcs.Push.Dialog.v2/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076886765" />
     <state x="278" y="446" width="802" height="524" key="Vcs.Push.Dialog.v2/275.1080.1366.768/0.340.1920.740@0.340.1920.740" timestamp="1598054613633" />
     <state x="768" y="471" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598102059888">

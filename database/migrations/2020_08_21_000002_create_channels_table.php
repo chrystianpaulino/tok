@@ -20,6 +20,7 @@ class CreateChannelsTable extends Migration
             $table->uuid('cliente_id')->index();
             $table->string('name');
             $table->boolean('status')->default(true);
+            $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('cliente_id')

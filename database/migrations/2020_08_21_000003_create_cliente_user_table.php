@@ -23,7 +23,6 @@ class CreateClienteUserTable extends Migration
         Schema::create('cliente_user', function (Blueprint $table) {
             $table->uuid('cliente_id')->index();
             $table->uuid('user_id')->index();
-            $table->softDeletes();
 
             $table->foreign('cliente_id')
                 ->references('id')

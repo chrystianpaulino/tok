@@ -18,7 +18,6 @@ class CreateUserDepartmentTable extends Migration
         Schema::create('user_department', function (Blueprint $table) {
             $table->uuid('user_id')->index();
             $table->uuid('department_id')->index();
-            $table->softDeletes();
 
             $table->foreign('user_id')
                 ->references('id')
