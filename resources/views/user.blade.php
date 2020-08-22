@@ -1,85 +1,93 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
+<html lang="en">
+
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TalkJS User-to-Operator</title>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>Chat</title>
-    <link href="{{ asset('css/bs4/bootstrap-4.4.1.min.css') }}" rel="stylesheet">
-    <!-- Scripts -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-    </style>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
+
 <body>
-
-<div id="talkjs-container" class="h-100 p-5"><i>Carregando o chat...</i></div>
-
+<div class="container" style="max-width: 800px">
+    <div class="row">
+        <h1>TalkJS User-to-Operator Example</h1>
+        <h2>In-app user view</h2>
+        <p>Let's assume this is one of the pages in your app, where a user can configure an item or product.</p>
+        <p style="font-size: 75%">Note: Before this example will work, you will have to enter your TalkJS credentials in the source.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Item 2493</h3>
+            <p>Here, there might be some item, order or product that the user is configuring.</p>
+            <p>To the right, there is a chatbox where the user can discuss the item, order or product with an operator.</p>
+        </div>
+        <div class="col-md-6" id="talkjs-container">
+        </div>
+    </div>
+</div>
 <script>
     (function(t,a,l,k,j,s){
-        s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
-        ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
-                    .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
-
-
-    // var inbox = talkSession.createInbox();
-    // inbox.mount(document.getElementById("inbox-container"));
+        s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.getElementsByTagName('head')[0].appendChild(s);k=t.Promise
+        t.Talk={ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l.push([f])},catch:function(){return k&&new k()},c:l}}
+    })(window,document,[]);
+</script>
+<script>
     Talk.ready.then(function() {
-        var empresa = new Talk.User({
-            id: "654321",
-            name: "Sebastian",
-            email: "sebastian@example.com",
-            photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
-            welcomeMessage: "Hey, how can I help?"
+
+        // The core TalkJS lib has loaded, so let's identify the current user to TalkJS.
+
+        // TODO: replace the fields below with actual user data.
+        var me = new Talk.User({
+            // must be any value that uniquely identifies this user
+            id: "1234562",
+            name: "George Looney 3",
+            email: "george@looney.net",
+            photoUrl: "https://talkjs.com/docs/img/george.jpg"
         });
+        // TODO: add a "configuration" field to the user object so your
+        // user can get email notifications.
+        // See https://talkjs.com/docs/Emails_and_Configurations.html for more
+        // info.
 
-        var user = new Talk.User({
-            id: "654322",
-            name: "Chrystian",
-            email: "chrystian@example.com",
-            photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
-            welcomeMessage: "Hey, how can I help?"
-        });
-
-
-
+        // TODO: replace the appId below with the appId provided in the Dashboard
         window.talkSession = new Talk.Session({
-            appId: "x6yWS8qi",
-            me: user
+            appId: "tc7Q1y1H",
+            me: me
         });
-        var conversation = talkSession.getOrCreateConversation(Talk.oneOnOneId(empresa, user))
-        conversation.setParticipant(empresa);
-        conversation.setParticipant(user);
-        //var inbox = talkSession.createInbox({selected: conversation});
-        var inbox = talkSession.createChatbox(conversation);
-        inbox.mount(document.getElementById("talkjs-container"));
 
-        inbox.on("sendMessage", (message) => {
+        // Let's show the chatbox.
+        // First, we need to define who we want to talk to.
+        //
+        // In this case, it's always the operator. The code below is identical
+        // to the `var me =` declaration in operator.html
+        var operator = new Talk.User({
+            // just hardcode any user id, as long as your real users don't have this id
+            id: "myapp_operator",
+            name: "ExampleApp Operator",
+            email: "support@example.com",
+            photoUrl: "http://dmssolutions.nl/wp-content/uploads/2013/06/helpdesk.png",
+            welcomeMessage: "Hi there! How can I help you?"
+        });
 
-            {{--var url = '{{ route('chat.push.entrega', ['id' => $entregador->id, 'empresaid' => $empresa->id, 'entregaid' => $entrega->id]) }}';--}}
-            {{--axios.post(url, {mensagem: message.message})--}}
-            {{--    .then(function (response) {--}}
+        // Now, let's start or continue the conversation with the operator and
+        // show the chatbox.
 
-            {{--    })--}}
-            {{--    .catch(function (error) {--}}
-            {{--        console.log(error);--}}
-            {{--    })--}}
-        })
+        // You control the ID of a conversation. In this example, we use the item ID as
+        // the conversation ID in order to tie this conversation to this item.
+        var conversation = window.talkSession.getOrCreateConversation("item_2493");
+        conversation.setParticipant(me);
+        conversation.setParticipant(operator);
+
+        var chatbox = window.talkSession.createChatbox(conversation);
+        chatbox.mount(document.getElementById("talkjs-container"));
+
     });
+
 </script>
 
 </body>
+
 </html>

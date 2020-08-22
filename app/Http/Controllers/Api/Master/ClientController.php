@@ -27,6 +27,7 @@ class ClientController extends Controller
 
     public function store(Request $request)
     {
+        // TODO: AO CRIAR CLIENTE, TAMBÉM TEMOS QUE ALIMENTAR A TABELA CLIENTE_USER;
         try {
             $request->validate([
                 'name' => 'required',

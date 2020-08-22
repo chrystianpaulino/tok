@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/testes', function () {
 
+    $user = \App\Models\User::first();
+    dd($user, $user->roles()->first()->name);
+
+    $base_url = url('/ok');
+
+    dd($base_url);
+
     $data = [
         'name' => 'RAMONZIN DAS MENINAS'
     ];

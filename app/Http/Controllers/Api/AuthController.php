@@ -28,6 +28,8 @@ class AuthController extends Controller
     public function register(Request $request)
     {
 
+        // TODO: PADRAO AGENTE ?
+
         try{
             $request->validate([
                 'name'      => 'required|max:55',
@@ -49,6 +51,9 @@ class AuthController extends Controller
 
             $success['token']   = $user->createToken('authToken')->accessToken;
             $success['user']    = $user;
+
+            // TODO: UTILIZAR ESTE PADRAO NESTA CLASSE?
+            // \Bouncer::assign('agent')->to($user);
 
             return response()->json(['success' => $success], 200);
 
@@ -73,9 +78,9 @@ class AuthController extends Controller
                 throw new \Exception('E-mail/Senha inválido(s)');
             }
 
-            $success['token']   = Auth::user()->createToken('authToken')->accessToken;
-            $success['user']    = Auth::user();
-            $success['type']    = Auth::user()->roles()->first()->name;
+            $success['token']           = Auth::user()->createToken('authToken')->accessToken;
+            $success['user']            = Auth::user();
+            $success['user']['type']    = Auth::user()->roles()->first()->name;
 
             return response()->json(['success' => $success], 200);
 
