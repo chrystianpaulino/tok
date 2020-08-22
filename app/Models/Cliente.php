@@ -28,6 +28,6 @@ class Cliente extends Model
 
     public function users()
     {
-        $this->belongsToMany(User::class, ClienteUser::class);
+        $this->belongsToMany(User::class, 'cliente_user');
     }
 }

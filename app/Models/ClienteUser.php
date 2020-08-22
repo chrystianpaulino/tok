@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class ClienteUser extends Pivot
 {
-    protected $table = 'cliente_user';
+    public $timestamps  = false;
+    protected $table    = 'cliente_user';
 }

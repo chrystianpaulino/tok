@@ -84,7 +84,9 @@ class AuthController extends Controller
             $role =  Auth::user()->roles()->get();
 
             if(count($role)){
-                $user['user']['type'] = $role[0];
+                $success['user']['type'] = $role[0]->name;
+            }else{
+                $success['user']['type'] = 'agent';
             }
 
             return response()->json(['success' => $success], 200);
