@@ -22,9 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc8f05d8-ccd1-4165-b45f-91838c39f17d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_22_042920_create_bouncer_tables.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_22_042920_create_bouncer_tables.php" afterDir="false" />
-    </list>
+    <list default="true" id="fc8f05d8-ccd1-4165-b45f-91838c39f17d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -449,7 +447,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598103134005</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="fix(bouncer): change entity_id to uuid">
+      <created>1598103443655</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1598103443655</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix(seed): encrypt user password">
+      <created>1598103626932</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1598103626932</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -471,8 +483,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(channel): create model" />
-    <MESSAGE value="feat(cliente): create model with relationships" />
     <MESSAGE value="feat(cliente): implements uuid on models" />
     <MESSAGE value="feat(uuid): incrementing false when creating" />
     <MESSAGE value="feat(package): add laravel schematics" />
@@ -496,7 +506,9 @@
     <MESSAGE value="fix(repositories): base repo import" />
     <MESSAGE value="fix(repositories): remove method fluent return types" />
     <MESSAGE value="fix(repositories): add timestamps and remove unnecessary soft deletes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(repositories): add timestamps and remove unnecessary soft deletes" />
+    <MESSAGE value="fix(bouncer): change entity_id to uuid" />
+    <MESSAGE value="fix(seed): encrypt user password" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(seed): encrypt user password" />
   </component>
   <component name="WindowStateProjectService">
     <state x="761" y="239" width="389" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1598101527975">
@@ -517,10 +529,10 @@
     </state>
     <state x="655" y="161" width="504" height="626" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598101449818" />
     <state x="704" y="239" width="504" height="626" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076394134" />
-    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2" timestamp="1598103133913">
+    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2" timestamp="1598103626861">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598103133913" />
+    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598103626861" />
     <state x="511" y="113" width="960" height="797" key="CommitChangelistDialog2/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076879485" />
     <state x="269" y="340" width="819" height="736" key="CommitChangelistDialog2/275.1080.1366.768/0.340.1920.740@0.340.1920.740" timestamp="1598054611649" />
     <state x="99" y="128" width="1722" height="853" key="DiffContextDialog" timestamp="1598062304316">
@@ -572,10 +584,10 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="842" y="472" width="228" height="161" key="VCS.EditChangelistDialog/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598077316453" />
-    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2" timestamp="1598103134876">
+    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2" timestamp="1598103627791">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598103134876" />
+    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598103627791" />
     <state x="539" y="288" width="802" height="532" key="Vcs.Push.Dialog.v2/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076886765" />
     <state x="278" y="446" width="802" height="524" key="Vcs.Push.Dialog.v2/275.1080.1366.768/0.340.1920.740@0.340.1920.740" timestamp="1598054613633" />
     <state x="768" y="471" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598102059888">
@@ -587,10 +599,10 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="666" y="178" width="587" height="753" key="find.popup/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598068145071" />
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1598103311133">
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1598103550701">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598103311133" />
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598103550701" />
     <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598077083365" />
   </component>
 </project>
