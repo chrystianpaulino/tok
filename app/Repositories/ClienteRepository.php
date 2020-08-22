@@ -8,6 +8,6 @@ final class ClienteRepository extends BaseRepository
 {
     public function __construct()
     {
-        $this->model = new Cliente;
+        $this->model = new Cliente();
     }
 }
