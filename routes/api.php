@@ -20,7 +20,7 @@ Route::namespace('Api')->group(function () {
     Route::post('/login'        , 'AuthController@login'            )->name('login');
 });
 
-Route::middleware('auth:api')->group(function() {
+//Route::middleware('auth:api')->group(function() {
 
     /* AUTH ROUTES */
     Route::namespace('Api')->group(function () {
@@ -31,11 +31,11 @@ Route::middleware('auth:api')->group(function() {
         Route::namespace('Master')->group(function () {
             // Controllers Within The "App\Http\Controllers\Api\Master" Namespace
             Route::resources([
-                'clients' => 'ClientController',
+                'clientes' => 'ClienteController',
             ]);
         });
 
-        Route::namespace('Client')->group(function () {
+        Route::namespace('Cliente')->group(function () {
             // Controllers Within The "App\Http\Controllers\Api\Master" Namespace
             Route::resources([
                 'channels'      => 'ChannelController',
@@ -46,7 +46,7 @@ Route::middleware('auth:api')->group(function() {
 
     });
 
-});
+//});
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

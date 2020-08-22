@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Api\Master;
+namespace App\Http\Controllers\Api\Cliente;
 
 use App\Http\Controllers\Controller;
-use App\Services\ClientService;
+use App\Services\DepartmentService;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class DepartmentController extends Controller
 {
     private $service;
 
-    public function __construct(ClientService $service)
+    public function __construct(DepartmentService $service)
     {
         $this->service = $service;
     }
@@ -18,8 +18,7 @@ class ClientController extends Controller
     public function index()
     {
         try {
-            $result = $this->service->index();
-            return response()->json($result);
+            return response()->json($this->service->index());
         } catch (\Exception $exception) {
             return response()->json($exception->getMessage(), 400);
         }
@@ -27,10 +26,10 @@ class ClientController extends Controller
 
     public function store(Request $request)
     {
-        // TODO: AO CRIAR CLIENTE, TAMBÉM TEMOS QUE ALIMENTAR A TABELA CLIENTE_USER;
         try {
             $request->validate([
-                'name' => 'required',
+                'name'          => 'required',
+                'cliente_id'    => 'required',
             ]);
 
             $result = $this->service->store($request->all());

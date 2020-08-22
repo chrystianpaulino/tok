@@ -6,7 +6,7 @@ use App\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Client extends Model
+class Cliente extends Model
 {
     use SoftDeletes, UuidTrait;
 
@@ -28,6 +28,6 @@ class Client extends Model
 
     public function users()
     {
-        $this->belongsToMany(User::class, ClientUser::class);
+        $this->belongsToMany(User::class, ClienteUser::class);
     }
 }

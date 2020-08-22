@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Api\Client;
+namespace App\Http\Controllers\Api\Master;
 
 use App\Http\Controllers\Controller;
-use App\Services\ConversationService;
+use App\Services\ClienteService;
 use Illuminate\Http\Request;
 
-class ConversationController extends Controller
+class ClienteController extends Controller
 {
     private $service;
 
-    public function __construct(ConversationService $service)
+    public function __construct(ClienteService $service)
     {
         $this->service = $service;
     }
@@ -18,7 +18,8 @@ class ConversationController extends Controller
     public function index()
     {
         try {
-            return response()->json($this->service->index());
+            $result = $this->service->index();
+            return response()->json($result);
         } catch (\Exception $exception) {
             return response()->json($exception->getMessage(), 400);
         }
@@ -26,12 +27,12 @@ class ConversationController extends Controller
 
     public function store(Request $request)
     {
+        // TODO: AO CRIAR CLIENTE, TAMBÉM TEMOS QUE ALIMENTAR A TABELA CLIENTE_USER;
         try {
             $request->validate([
-                'name'          => 'required',
-                'telefone'      => 'required',
-                'cpf'           => 'required',
-                'department_id' => 'required',
+                'name'      => 'required',
+                'email'     => 'email|required',
+                'password'  => 'required',
             ]);
 
             $result = $this->service->store($request->all());
