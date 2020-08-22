@@ -1,100 +1,85 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <title>Chat</title>
+    <link href="{{ asset('css/bs4/bootstrap-4.4.1.min.css') }}" rel="stylesheet">
+    <!-- Scripts -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- Styles -->
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+    </style>
 
-            .full-height {
-                height: 100vh;
-            }
+</head>
+<body>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+<div id="talkjs-container" class="h-100 p-5"><i>Carregando o chat...</i></div>
 
-            .position-ref {
-                position: relative;
-            }
+<script>
+    (function(t,a,l,k,j,s){
+        s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+        ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+                    .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
 
-            .content {
-                text-align: center;
-            }
+    // var inbox = talkSession.createInbox();
+    // inbox.mount(document.getElementById("inbox-container"));
+    Talk.ready.then(function() {
+        var empresa = new Talk.User({
+            id: "654321",
+            name: "Sebastian",
+            email: "sebastian@example.com",
+            photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
+            welcomeMessage: "Hey, how can I help?"
+        });
 
-            .title {
-                font-size: 84px;
-            }
+        var entregador = new Talk.User({
+            id: "654322",
+            name: "Chrystian",
+            email: "chrystian@example.com",
+            photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
+            welcomeMessage: "Hey, how can I help?"
+        });
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+        window.talkSession = new Talk.Session({
+            appId: "x6yWS8qi",
+            me: empresa
+        });
+        var conversation = talkSession.getOrCreateConversation(Talk.oneOnOneId(empresa, entregador))
+        conversation.setParticipant(empresa);
+        conversation.setParticipant(entregador);
+        //var inbox = talkSession.createInbox({selected: conversation});
+        var inbox = talkSession.createChatbox(conversation);
+        inbox.mount(document.getElementById("talkjs-container"));
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+        inbox.on("sendMessage", (message) => {
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
+            {{--var url = '{{ route('chat.push.entrega', ['id' => $entregador->id, 'empresaid' => $empresa->id, 'entregaid' => $entrega->id]) }}';--}}
+            {{--axios.post(url, {mensagem: message.message})--}}
+            {{--    .then(function (response) {--}}
+
+            {{--    })--}}
+            {{--    .catch(function (error) {--}}
+            {{--        console.log(error);--}}
+            {{--    })--}}
+        })
+    });
+</script>
+
+</body>
 </html>

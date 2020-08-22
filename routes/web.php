@@ -35,3 +35,7 @@ Route::get('/testes', function () {
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/user', function () {
+    return view('user');
+});
