@@ -27,8 +27,8 @@ class CreateClientesTable extends Migration
      *
      * @return void
      */
-     public function down()
-     {
-       Schema::dropIfExists('clientes');
-     }
+    public function down()
+    {
+        Schema::dropIfExists('clientes');
+    }
 }

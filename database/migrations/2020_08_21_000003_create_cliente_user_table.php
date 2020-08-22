@@ -44,8 +44,8 @@ class CreateClienteUserTable extends Migration
      *
      * @return void
      */
-     public function down()
-     {
-       Schema::dropIfExists('cliente_user');
-     }
+    public function down()
+    {
+        Schema::dropIfExists('cliente_user');
+    }
 }
