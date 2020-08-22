@@ -17,12 +17,18 @@ class CreateConversationsTable extends Migration
     {
         Schema::create('conversations', function (Blueprint $table) {
             $table->uuid('id')->index();
-            $table->uuid('channel_id')->index();
-            $table->uuid('department_id')->index();
+            $table->string('user_id');
+            $table->uuid('conversation_id');
+            $table->uuid('user_department_id')->nullable();
+            $table->uuid('agent_id')->nullable();
+            $table->uuid('channel_id')->index()->nullable();
+            $table->uuid('department_id')->index()->nullable();
             $table->uuid('cliente_id')->index();
-            $table->string('name');
-            $table->string('cpf');
-            $table->string('telefone');
+            $table->string('user_name');
+            $table->string('user_cpf');
+            $table->string('user_telefone')->nullable();
+            $table->string('user_foto')->nullable();
+            $table->string('user_email')->nullable();
             $table->string('status', 2)->default('01');
             $table->timestamps();
             $table->softDeletes();
