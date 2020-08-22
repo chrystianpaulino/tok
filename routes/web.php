@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/testes', function () {
-    $user = \App\Models\User::first();
+    $user = \App\Models\User::where('name', 'Ramonzinho')->first();
+    \Bouncer::assign('cliente')->to($user);
+
+    dd($user, $user->roles()->first()->name);
+
+    dd($user);
     dd("a", $user, $user->roles()->first()->name);
     \Illuminate\Support\Facades\Auth::user();
     return view('welcome');
