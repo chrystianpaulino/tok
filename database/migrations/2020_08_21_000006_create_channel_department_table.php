@@ -39,8 +39,8 @@ class CreateChannelDepartmentTable extends Migration
      *
      * @return void
      */
-     public function down()
-     {
-       Schema::dropIfExists('channel_department');
-     }
+    public function down()
+    {
+        Schema::dropIfExists('channel_department');
+    }
 }

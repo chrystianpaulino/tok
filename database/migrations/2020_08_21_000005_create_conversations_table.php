@@ -45,8 +45,8 @@ class CreateConversationsTable extends Migration
      *
      * @return void
      */
-     public function down()
-     {
-       Schema::dropIfExists('conversations');
-     }
+    public function down()
+    {
+        Schema::dropIfExists('conversations');
+    }
 }
