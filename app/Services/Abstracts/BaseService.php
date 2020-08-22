@@ -32,6 +32,7 @@ abstract class BaseService implements BaseServiceInterface
 
     public function destroy($id)
     {
+        // TODO: TRATAR PARA DELETAR CHANNEL APENAS SE ELE NAO TIVER DEPARTAMENTOS COM CONVERSAS ABERTAS
         return $this->repository->deleteById($id);
     }
 }

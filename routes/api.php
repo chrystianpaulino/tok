@@ -30,11 +30,17 @@ Route::middleware('auth:api')->group(function() {
 
         Route::namespace('Master')->group(function () {
             // Controllers Within The "App\Http\Controllers\Api\Master" Namespace
-
             Route::resources([
                 'clients' => 'ClientController',
             ]);
+        });
 
+        Route::namespace('Client')->group(function () {
+            // Controllers Within The "App\Http\Controllers\Api\Master" Namespace
+            Route::resources([
+                'channels'      => 'ChannelController',
+                'departments'   => 'DepartmentController',
+            ]);
         });
 
     });

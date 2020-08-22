@@ -10,13 +10,14 @@ class Channel extends Model
 {
     use SoftDeletes, UuidTrait;
 
-    protected $table = 'clientes';
+    protected $table = 'channels';
 
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
         'name',
-        'status'
+        'status',
+        'cliente_id'
     ];
 
     public function cliente()

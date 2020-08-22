@@ -16,7 +16,8 @@ class Department extends Model
 
     protected $fillable = [
         'name',
-        'status'
+        'status',
+        'cliente_id'
     ];
 
     public function cliente()
