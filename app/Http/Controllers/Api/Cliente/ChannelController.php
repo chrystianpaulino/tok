@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\Cliente;
 use App\Http\Controllers\Controller;
 use App\Repositories\ChannelRepository;
 
-class ChannelConroller extends Controller
+class ChannelController extends Controller
 {
     private $repository;
 
