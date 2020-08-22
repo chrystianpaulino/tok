@@ -3,22 +3,21 @@
 namespace App\Http\Controllers\Api\Cliente;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\ChannelRepository;
-use App\Repositories\DepartmentRepository;
+use App\Services\DepartmentService;
 
 class DepartmentController extends Controller
 {
-    private $repository;
+    private $service;
 
-    public function __construct(DepartmentRepository $repository)
+    public function __construct(DepartmentService $service)
     {
-        $this->repository = $repository;
+        $this->service = $service;
     }
 
     public function index()
     {
         try {
-            return response()->json($this->repository->all());
+            return response()->json($this->service->index());
         } catch (\Exception $exception) {
             return response()->json($exception->getMessage(), 400);
         }

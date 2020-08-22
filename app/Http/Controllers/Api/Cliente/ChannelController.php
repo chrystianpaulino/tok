@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Api\Cliente;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\ChannelRepository;
+use App\Services\ChannelService;
 
 class ChannelController extends Controller
 {
-    private $repository;
+    private $service;
 
-    public function __construct(ChannelRepository $repository)
+    public function __construct(ChannelService $service)
     {
-        $this->repository = $repository;
+        $this->service = $service;
     }
 
     public function index()
     {
         try {
-            return response()->json($this->repository->all());
+            return response()->json($this->service->index());
         } catch (\Exception $exception) {
             return response()->json($exception->getMessage(), 400);
         }
