@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUserDepartmentTable extends Migration
 {
-    /**
-     * Schema table name to migrate
-     * @var string
-     */
-    public $tableName = 'user_department';
 
     /**
      * Run the migrations.
@@ -20,25 +15,22 @@ class CreateUserDepartmentTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->tableName, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('user_id');
-            $table->char('department_id', 32);
+        Schema::create('user_department', function (Blueprint $table) {
+            $table->uuid('user_id')->index();
+            $table->uuid('department_id')->index();
+            $table->softDeletes();
 
-            $table->index(["user_id"], 'fk_users_has_departments_users1_idx');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
-            $table->index(["department_id"], 'fk_users_has_departments_departments1_idx');
-
-
-            $table->foreign('user_id', 'fk_users_has_departments_users1_idx')
-                ->references('id')->on('users')
-                ->onDelete('no action')
-                ->onUpdate('no action');
-
-            $table->foreign('department_id', 'fk_users_has_departments_departments1_idx')
-                ->references('id')->on('departments')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+            $table->foreign('department_id')
+                ->references('id')
+                ->on('departments')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
@@ -49,6 +41,6 @@ class CreateUserDepartmentTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists($this->tableName);
+       Schema::dropIfExists('user_department');
      }
 }

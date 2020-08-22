@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateDepartmentsTable extends Migration
 {
-    /**
-     * Schema table name to migrate
-     * @var string
-     */
-    public $tableName = 'departments';
 
     /**
      * Run the migrations.
@@ -20,20 +15,18 @@ class CreateDepartmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->tableName, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->string('name', 45)->nullable();
-            $table->char('status', 1)->nullable();
-            $table->char('clientes_id', 32);
+        Schema::create('departments', function (Blueprint $table) {
+            $table->uuid('id')->index();
+            $table->string('name')->nullable();
+            $table->boolean('status')->default(true);
+            $table->uuid('cliente_id')->index();
+            $table->softDeletes();
 
-            $table->index(["clientes_id"], 'fk_departments_clientes1_idx');
-
-
-            $table->foreign('clientes_id', 'fk_departments_clientes1_idx')
-                ->references('id')->on('clientes')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+            $table->foreign('cliente_id')
+                ->references('id')
+                ->on('clientes')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
@@ -44,6 +37,6 @@ class CreateDepartmentsTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists($this->tableName);
+       Schema::dropIfExists('departments');
      }
 }

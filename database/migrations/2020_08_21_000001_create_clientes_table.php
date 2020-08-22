@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateClientesTable extends Migration
 {
-    /**
-     * Schema table name to migrate
-     * @var string
-     */
-    public $tableName = 'clientes';
 
     /**
      * Run the migrations.
@@ -20,10 +15,10 @@ class CreateClientesTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->tableName, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->string('nome', 45)->nullable();
+        Schema::create('clientes', function (Blueprint $table) {
+            $table->uuid('id')->index();
+            $table->string('nome');
+            $table->softDeletes();
         });
     }
 
@@ -34,6 +29,6 @@ class CreateClientesTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists($this->tableName);
+       Schema::dropIfExists('clientes');
      }
 }

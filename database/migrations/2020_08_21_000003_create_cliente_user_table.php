@@ -20,25 +20,22 @@ class CreateClienteUserTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->tableName, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('cliente_id');
-            $table->char('user_id', 32);
+        Schema::create('cliente_user', function (Blueprint $table) {
+            $table->uuid('cliente_id')->index();
+            $table->uuid('user_id')->index();
+            $table->softDeletes();
 
-            $table->index(["user_id"], 'fk_clientes_has_users_users1_idx');
+            $table->foreign('cliente_id')
+                ->references('id')
+                ->on('clientes')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
-            $table->index(["cliente_id"], 'fk_clientes_has_users_clientes1_idx');
-
-
-            $table->foreign('cliente_id', 'fk_clientes_has_users_clientes1_idx')
-                ->references('id')->on('clientes')
-                ->onDelete('no action')
-                ->onUpdate('no action');
-
-            $table->foreign('user_id', 'fk_clientes_has_users_users1_idx')
-                ->references('id')->on('users')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
@@ -49,6 +46,6 @@ class CreateClienteUserTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists($this->tableName);
+       Schema::dropIfExists('cliente_user');
      }
 }

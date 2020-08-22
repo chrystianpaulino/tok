@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateChannelsTable extends Migration
 {
-    /**
-     * Schema table name to migrate
-     * @var string
-     */
-    public $tableName = 'channels';
 
     /**
      * Run the migrations.
@@ -20,20 +15,18 @@ class CreateChannelsTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->tableName, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->string('name', 45)->nullable();
-            $table->char('status', 1)->nullable();
-            $table->integer('cliente_id');
+        Schema::create('channels', function (Blueprint $table) {
+            $table->uuid('id')->index();
+            $table->uuid('cliente_id')->index();
+            $table->string('name');
+            $table->boolean('status')->default(true);
+            $table->softDeletes();
 
-            $table->index(["cliente_id"], 'fk_channels_clientes1_idx');
-
-
-            $table->foreign('cliente_id', 'fk_channels_clientes1_idx')
-                ->references('id')->on('clientes')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+            $table->foreign('cliente_id')
+                ->references('id')
+                ->on('clientes')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
@@ -44,6 +37,6 @@ class CreateChannelsTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists($this->tableName);
+         Schema::dropIfExists('channels');
      }
 }

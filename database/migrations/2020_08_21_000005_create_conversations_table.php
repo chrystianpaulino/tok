@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateConversationsTable extends Migration
 {
-    /**
-     * Schema table name to migrate
-     * @var string
-     */
-    public $tableName = 'conversations';
 
     /**
      * Run the migrations.
@@ -20,31 +15,28 @@ class CreateConversationsTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->tableName, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->char('channel_id', 32);
-            $table->char('department_id', 32);
-            $table->string('departament_name', 45)->nullable();
-            $table->string('name', 45)->nullable();
-            $table->string('cpf', 45)->nullable();
-            $table->string('telefone', 45)->nullable();
-            $table->char('status', 1)->nullable();
+        Schema::create('conversations', function (Blueprint $table) {
+            $table->uuid('id')->index();
+            $table->uuid('channel_id')->index();
+            $table->uuid('department_id')->index();
+            $table->string('departament_name');
+            $table->string('name');
+            $table->string('cpf');
+            $table->string('telefone');
+            $table->string('status', 2)->default('01');
+            $table->softDeletes();
 
-            $table->index(["channel_id"], 'fk_conversations_channels1_idx');
+            $table->foreign('channel_id')
+                ->references('id')
+                ->on('channels')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
-            $table->index(["department_id"], 'fk_conversations_departments1_idx');
-
-
-            $table->foreign('channel_id', 'fk_conversations_channels1_idx')
-                ->references('id')->on('channels')
-                ->onDelete('no action')
-                ->onUpdate('no action');
-
-            $table->foreign('department_id', 'fk_conversations_departments1_idx')
-                ->references('id')->on('departments')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+            $table->foreign('department_id')
+                ->references('id')
+                ->on('departments')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
@@ -55,6 +47,6 @@ class CreateConversationsTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists($this->tableName);
+       Schema::dropIfExists('conversations');
      }
 }
