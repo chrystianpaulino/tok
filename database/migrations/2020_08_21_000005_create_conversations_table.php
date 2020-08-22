@@ -19,7 +19,7 @@ class CreateConversationsTable extends Migration
             $table->uuid('id')->index();
             $table->uuid('channel_id')->index();
             $table->uuid('department_id')->index();
-            $table->string('departament_name');
+            $table->uuid('cliente_id')->index();
             $table->string('name');
             $table->string('cpf');
             $table->string('telefone');
@@ -35,6 +35,12 @@ class CreateConversationsTable extends Migration
             $table->foreign('department_id')
                 ->references('id')
                 ->on('departments')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('cliente_id')
+                ->references('id')
+                ->on('clientes')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

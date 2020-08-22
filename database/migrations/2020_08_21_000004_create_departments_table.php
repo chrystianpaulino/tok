@@ -17,9 +17,9 @@ class CreateDepartmentsTable extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->uuid('id')->index();
+            $table->uuid('cliente_id')->index();
             $table->string('name')->nullable();
             $table->boolean('status')->default(true);
-            $table->uuid('cliente_id')->index();
             $table->softDeletes();
 
             $table->foreign('cliente_id')

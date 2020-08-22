@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\ClienteUser;
 use App\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -32,5 +31,10 @@ class User extends Authenticatable
     public function clientes()
     {
         $this->belongsToMany(Cliente::class, ClienteUser::class);
+    }
+
+    public function conversations()
+    {
+        $this->belongsToMany(Conversation::class, UserConversation::class);
     }
 }

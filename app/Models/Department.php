@@ -6,11 +6,11 @@ use App\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Channel extends Model
+class Department extends Model
 {
     use SoftDeletes, UuidTrait;
 
-    protected $table = 'clientes';
+    protected $table = 'departments';
 
     protected $dates = ['deleted_at'];
 
@@ -24,8 +24,8 @@ class Channel extends Model
         $this->belongsTo(Cliente::class);
     }
 
-    public function departments()
+    public function channels()
     {
-        $this->belongsToMany(Department::class, ChannelDepartment::class);
+        $this->belongsToMany(Channel::class, ChannelDepartment::class);
     }
 }
