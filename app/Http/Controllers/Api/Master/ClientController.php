@@ -29,7 +29,7 @@ class ClientController extends Controller
     {
         try {
             $request->validate([
-                'nome' => 'required',
+                'name' => 'required',
             ]);
 
             $result = $this->service->store($request->all());
@@ -49,13 +49,4 @@ class ClientController extends Controller
         }
     }
 
-    public function destroy($id)
-    {
-        try {
-            $this->service->destroy($id);
-            return response()->json(['message' => 'Cliente excluído com sucesso']);
-        } catch (\Exception $exception) {
-            return response()->json($exception->getMessage(), 400);
-        }
-    }
 }

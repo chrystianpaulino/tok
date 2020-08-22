@@ -14,7 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/testes', function () {
+
+    $data = [
+        'name' => 'RAMONZIN DAS MENINAS'
+    ];
+
     $user = \App\Models\User::where('name', 'Ramonzinho')->first();
+    $user->update($data);
+    dd($user);
     \Bouncer::assign('cliente')->to($user);
 
     dd($user, $user->roles()->first()->name);

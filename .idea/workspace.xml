@@ -23,7 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc8f05d8-ccd1-4165-b45f-91838c39f17d" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Cliente/ConversationController.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Master/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Master/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,9 +182,14 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< Updated upstream
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Api/Cliente" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Services" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+>>>>>>> Stashed changes
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="LogHighlighting" />
@@ -204,7 +216,10 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="fc8f05d8-ccd1-4165-b45f-91838c39f17d" name="Default Changelist" comment="" />
@@ -608,10 +623,16 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="666" y="178" width="587" height="753" key="find.popup/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598068145071" />
+<<<<<<< Updated upstream
     <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1598103550701">
       <screen x="0" y="28" width="1920" height="1052" />
+=======
+    <state x="2751" y="238" width="896" height="697" key="search.everywhere.popup" timestamp="1598105357229">
+      <screen x="1920" y="0" width="2560" height="1080" />
+>>>>>>> Stashed changes
     </state>
     <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598103550701" />
     <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598077083365" />
+    <state x="2751" y="238" width="896" height="697" key="search.everywhere.popup/60.27.1860.1053/1920.0.2560.1080@1920.0.2560.1080" timestamp="1598105357229" />
   </component>
 </project>

@@ -15,7 +15,7 @@ class Client extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'nome',
+        'name',
     ];
 
     public function channel()
