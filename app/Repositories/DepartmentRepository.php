@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Department;
+use App\Repositories\Abstracts\BaseRepository;
 
 final class DepartmentRepository extends BaseRepository
 {

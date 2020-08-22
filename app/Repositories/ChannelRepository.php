@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Channel;
+use App\Repositories\Abstracts\BaseRepository;
 
 final class ChannelRepository extends BaseRepository
 {
