@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Api\Client;
+namespace App\Http\Controllers\Api\Cliente;
 
 use App\Http\Controllers\Controller;
-use App\Services\ChannelService;
+use App\Services\ConversationService;
 use Illuminate\Http\Request;
 
-class ChannelController extends Controller
+class ConversationController extends Controller
 {
     private $service;
 
-    public function __construct(ChannelService $service)
+    public function __construct(ConversationService $service)
     {
         $this->service = $service;
     }
@@ -29,7 +29,9 @@ class ChannelController extends Controller
         try {
             $request->validate([
                 'name'          => 'required',
-                'cliente_id'    => 'required'
+                'telefone'      => 'required',
+                'cpf'           => 'required',
+                'department_id' => 'required',
             ]);
 
             $result = $this->service->store($request->all());
@@ -44,16 +46,6 @@ class ChannelController extends Controller
         try {
             $result = $this->service->update($request->all(), $id);
             return response()->json($result);
-        } catch (\Exception $exception) {
-            return response()->json($exception->getMessage(), 400);
-        }
-    }
-
-    public function destroy($id)
-    {
-        try {
-            $this->service->destroy($id);
-            return response()->json(['message' => 'Channel excluído com sucesso']);
         } catch (\Exception $exception) {
             return response()->json($exception->getMessage(), 400);
         }

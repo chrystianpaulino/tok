@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/testes', function () {
 
+    $user =
+
+    $user = \App\Models\User::where('email', 'cliente@cliente.com')->first();
+    dd($user->roles()->first()->name);
+    \Bouncer::assign('admin')->to($user);
+    dd($user);
+
     $user = \App\Models\User::first();
     dd($user);
     dd($user, $user->roles()->first()->name);

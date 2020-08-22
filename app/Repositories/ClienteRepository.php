@@ -2,13 +2,13 @@
 
 namespace App\Repositories;
 
-use App\Models\Client;
+use App\Models\Cliente;
 use App\Repositories\Abstracts\BaseRepository;
 
-final class ClientRepository extends BaseRepository
+final class ClienteRepository extends BaseRepository
 {
     public function __construct()
     {
-        $this->model = new Client();
+        $this->model = new Cliente();
     }
 }

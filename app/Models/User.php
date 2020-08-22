@@ -34,7 +34,7 @@ class User extends Authenticatable
 
     public function clientes()
     {
-        $this->belongsToMany(Client::class, ClientUser::class);
+        $this->belongsToMany(Cliente::class, 'cliente_user');
     }
 
     public function conversations()

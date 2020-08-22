@@ -25,7 +25,7 @@ class Channel extends Model
 
     public function cliente()
     {
-        $this->belongsTo(Client::class);
+        $this->belongsTo(Cliente::class);
     }
 
     public function departments()

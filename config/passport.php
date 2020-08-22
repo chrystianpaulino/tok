@@ -19,7 +19,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Client UUIDs
+    | Cliente UUIDs
     |--------------------------------------------------------------------------
     |
     | By default, Passport uses auto-incrementing primary keys when assigning
@@ -32,7 +32,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Personal Access Client
+    | Personal Access Cliente
     |--------------------------------------------------------------------------
     |
     | If you enable client hashing, you should set the personal access client

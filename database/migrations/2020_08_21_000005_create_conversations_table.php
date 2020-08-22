@@ -18,7 +18,7 @@ class CreateConversationsTable extends Migration
         Schema::create('conversations', function (Blueprint $table) {
             $table->uuid('id')->index();
             $table->string('user_id');
-            $table->uuid('conversation_id');
+            $table->uuid('conversation_id')->nullable();
             $table->uuid('user_department_id')->nullable();
             $table->uuid('agent_id')->nullable();
             $table->uuid('channel_id')->index()->nullable();
