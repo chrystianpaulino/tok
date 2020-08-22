@@ -26,7 +26,13 @@ Route::middleware('auth:api')->group(function() {
     Route::namespace('Api')->group(function () {
         // Controllers Within The "App\Http\Controllers\Api" Namespace
         Route::get('logout'     ,'AuthController@logout'            )->name('logout');
-//        Route::get('user/me'    ,'AuthController@user'              )->name('user.me');
+        Route::get('user/me'    ,'AuthController@user'              )->name('user.me');
+
+        Route::namespace('Api\Master')->group(function () {
+            // Controllers Within The "App\Http\Controllers\Api\Master" Namespace
+
+        });
+
     });
 
 });
