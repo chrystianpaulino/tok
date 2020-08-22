@@ -7,12 +7,11 @@ use App\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes, UuidTrait;
-
-    public $incrementing = false;
+    use Notifiable, HasApiTokens, SoftDeletes, UuidTrait;
 
     protected $fillable = [
         'name',
