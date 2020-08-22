@@ -75,6 +75,7 @@ class AuthController extends Controller
 
             $success['token']   = Auth::user()->createToken('authToken')->accessToken;
             $success['user']    = Auth::user();
+            $success['type']    = Auth::user()->roles()->first()->name;
 
             return response()->json(['success' => $success], 200);
 
@@ -116,7 +117,11 @@ class AuthController extends Controller
                 $user->avatar = \Storage::disk('public')->url($user->avatar);
             }
 
-            return response()->json(['success' => $user], 200);
+            $success['user'] = $user;
+            $success['type'] = $user->roles()->first() ?? null;
+
+
+            return response()->json(['success' => $success], 200);
         }catch (\Exception $exception){
             DB::rollBack();
             Log::info($exception->getMessage());

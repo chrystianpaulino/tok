@@ -10,10 +10,13 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->delete();
 
-        User::create([
+        $user = User::create([
             'name'     => 'Tok',
             'email'    => 'contato@tok.com',
             'password' => '123456'
         ]);
+
+        \Bouncer::assign('master')->to($user);
+
     }
 }

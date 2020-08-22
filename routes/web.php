@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/testes', function () {
+    $user = \App\Models\User::first();
+    dd("a", $user, $user->roles()->first()->name);
+    \Illuminate\Support\Facades\Auth::user();
+    return view('welcome');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
