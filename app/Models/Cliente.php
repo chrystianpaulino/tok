@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\ClienteUser;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -19,6 +20,11 @@ class Cliente extends Model
 
     public function channel()
     {
-        $this->hasOne(Channel::class);
+        $this->hasMany(Channel::class);
+    }
+
+    public function users()
+    {
+        $this->belongsToMany(User::class, ClienteUser::class);
     }
 }
