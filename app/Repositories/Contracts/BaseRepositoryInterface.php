@@ -27,15 +27,15 @@ interface BaseRepositoryInterface
 
     public function getById($id): Model;
 
-    public function limit(int $limit): BaseRepository;
+    public function limit(int $limit);
 
-    public function orderBy(string $column, string $direction = 'asc'): BaseRepository;
+    public function orderBy(string $column, string $direction = 'asc');
 
     public function updateById($id, array $data): Model;
 
-    public function where(string $column, string $value, string $operator = '='): BaseRepository;
+    public function where(string $column, string $value, string $operator = '=');
 
-    public function whereIn(string $column, $values): BaseRepository;
+    public function whereIn(string $column, $values);
 
-    public function with($relations): BaseRepository;
+    public function with($relations);
 }
