@@ -11,4 +11,9 @@ final class ConversationService extends BaseService
     {
         $this->repository = new ConversationRepository();
     }
+    
+    public function index()
+    {
+        return $this->repository->orderBy('created_at')->all();
+    }
 }

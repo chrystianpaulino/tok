@@ -22,7 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc8f05d8-ccd1-4165-b45f-91838c39f17d" name="Default Changelist" comment="" />
+    <list default="true" id="fc8f05d8-ccd1-4165-b45f-91838c39f17d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Cliente/ConversationController.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -175,18 +177,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Services" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Api/Cliente" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="LogHighlighting" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Api/Cliente" />
       <recent name="$PROJECT_DIR$/app/Services" />
       <recent name="$PROJECT_DIR$/app/Repositories" />
       <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Services/Contracts" />
@@ -461,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598103626932</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="chore(client): remove duplicated files">
+      <created>1598104458033</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1598104458033</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +492,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(cliente): implements uuid on models" />
     <MESSAGE value="feat(uuid): incrementing false when creating" />
     <MESSAGE value="feat(package): add laravel schematics" />
     <MESSAGE value="feat(package): add schematics on public" />
@@ -508,7 +516,8 @@
     <MESSAGE value="fix(repositories): add timestamps and remove unnecessary soft deletes" />
     <MESSAGE value="fix(bouncer): change entity_id to uuid" />
     <MESSAGE value="fix(seed): encrypt user password" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(seed): encrypt user password" />
+    <MESSAGE value="chore(client): remove duplicated files" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(client): remove duplicated files" />
   </component>
   <component name="WindowStateProjectService">
     <state x="761" y="239" width="389" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1598101527975">
@@ -529,10 +538,10 @@
     </state>
     <state x="655" y="161" width="504" height="626" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598101449818" />
     <state x="704" y="239" width="504" height="626" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076394134" />
-    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2" timestamp="1598103626861">
+    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2" timestamp="1598104457953">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598103626861" />
+    <state x="511" y="113" width="794" height="817" key="CommitChangelistDialog2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598104457953" />
     <state x="511" y="113" width="960" height="797" key="CommitChangelistDialog2/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076879485" />
     <state x="269" y="340" width="819" height="736" key="CommitChangelistDialog2/275.1080.1366.768/0.340.1920.740@0.340.1920.740" timestamp="1598054611649" />
     <state x="99" y="128" width="1722" height="853" key="DiffContextDialog" timestamp="1598062304316">
@@ -584,10 +593,10 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="842" y="472" width="228" height="161" key="VCS.EditChangelistDialog/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598077316453" />
-    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2" timestamp="1598103627791">
+    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2" timestamp="1598104460397">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598103627791" />
+    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598104460397" />
     <state x="539" y="288" width="802" height="532" key="Vcs.Push.Dialog.v2/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076886765" />
     <state x="278" y="446" width="802" height="524" key="Vcs.Push.Dialog.v2/275.1080.1366.768/0.340.1920.740@0.340.1920.740" timestamp="1598054613633" />
     <state x="768" y="471" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598102059888">
