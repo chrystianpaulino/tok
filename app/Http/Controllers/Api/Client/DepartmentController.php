@@ -28,8 +28,9 @@ class DepartmentController extends Controller
     {
         try {
             $request->validate([
-                'name'          => 'required',
-                'cliente_id'    => 'required',
+                'name'       => 'required',
+                'cliente_id' => 'required',
+                'channel_id' => 'required',
             ]);
 
             $result = $this->service->store($request->all());
