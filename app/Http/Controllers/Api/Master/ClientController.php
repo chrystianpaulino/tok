@@ -18,8 +18,8 @@ class ClientController extends Controller
     public function index()
     {
         try {
-            $index = $this->service->index();
-            return response()->json($index);
+            $result = $this->service->index();
+            return response()->json($result);
         } catch (\Exception $exception) {
             return response()->json($exception->getMessage(), 400);
         }
@@ -29,10 +29,11 @@ class ClientController extends Controller
     {
         try {
             $request->validate([
-                'nome'  => 'required',
+                'nome' => 'required',
             ]);
-            $store = $this->service->store($request->all());
-            return response()->json($store);
+
+            $result = $this->service->store($request->all());
+            return response()->json($result);
         } catch (\Exception $exception) {
             return response()->json($exception->getMessage(), 400);
         }
@@ -41,8 +42,8 @@ class ClientController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $update = $this->service->update($request->all(), $id);
-            return response()->json($update);
+            $result = $this->service->update($request->all(), $id);
+            return response()->json($result);
         } catch (\Exception $exception) {
             return response()->json($exception->getMessage(), 400);
         }
