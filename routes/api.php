@@ -14,6 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::namespace('Api')->group(function () {
+    // Controllers Within The "App\Http\Controllers\Api" Namespace
+    Route::post('/register'     , 'AuthController@register'         )->name('register');
+    Route::post('/login'        , 'AuthController@login'            )->name('login');
+});
+
+Route::middleware('auth:api')->group(function() {
+
+    /* AUTH ROUTES */
+    Route::namespace('Api')->group(function () {
+        // Controllers Within The "App\Http\Controllers\Api" Namespace
+        Route::get('logout'     ,'AuthController@logout'            )->name('logout');
+//        Route::get('user/me'    ,'AuthController@user'              )->name('user.me');
+    });
+
+});
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
