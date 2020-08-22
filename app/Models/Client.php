@@ -10,6 +10,9 @@ class Client extends Model
 {
     use SoftDeletes, UuidTrait;
 
+    public    $incrementing = false;
+    protected $keyType      = 'string';
+
     protected $table = 'clientes';
 
     protected $dates = ['deleted_at'];

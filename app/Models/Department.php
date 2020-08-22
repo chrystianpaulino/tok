@@ -10,6 +10,9 @@ class Department extends Model
 {
     use SoftDeletes, UuidTrait;
 
+    public    $incrementing = false;
+    protected $keyType      = 'string';
+
     protected $table = 'departments';
 
     protected $dates = ['deleted_at'];

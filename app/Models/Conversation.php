@@ -10,6 +10,9 @@ class Conversation extends Model
 {
     use SoftDeletes, UuidTrait;
 
+    public    $incrementing = false;
+    protected $keyType      = 'string';
+
     protected $table = 'conversations';
 
     protected $dates = ['deleted_at'];
@@ -24,7 +27,7 @@ class Conversation extends Model
         'status',
     ];
 
-    protected $appends  = ['statusFormatted'];
+    protected $appends = ['statusFormatted'];
 
     public static $status = [
         '01' => 'Esperando Atendimento',

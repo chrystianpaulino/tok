@@ -13,6 +13,9 @@ class User extends Authenticatable
 {
     use Notifiable, HasApiTokens, SoftDeletes, UuidTrait, HasRolesAndAbilities;
 
+    public    $incrementing = false;
+    protected $keyType      = 'string';
+
     protected $fillable = [
         'name',
         'email',
