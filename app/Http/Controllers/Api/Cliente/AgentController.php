@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Api\Cliente;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\AgentRepository;
+use App\Repositories\BaseUserRoleRepository;
 
 class AgentController extends Controller
 {
     private $repository;
 
-    public function __construct(AgentRepository $repository)
+    public function __construct(BaseUserRoleRepository $repository)
     {
         $this->repository = $repository;
     }

@@ -2,12 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Models\Channel;
-
-final class AgentRepository extends BaseRepository
+final class AgentRepository extends BaseUserRoleRepository
 {
     public function __construct()
     {
-        $this->model = new Channel();
+        parent::__construct('agent');
     }
 }

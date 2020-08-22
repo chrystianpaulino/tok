@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Repositories\Contracts\BaseRepositoryInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -11,30 +12,23 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /** @var Model */
     protected $model;
 
-
     /** @var Builder */
     protected $query;
-
 
     /** @var int */
     protected $take;
 
-
     /** @var array */
     protected $with = [];
-
 
     /** @var array */
     protected $wheres = [];
 
-
     /** @var array */
     protected $whereIns = [];
 
-
     /** @var array */
     protected $orderBys = [];
-
 
     /** @var array */
     protected $scopes = [];

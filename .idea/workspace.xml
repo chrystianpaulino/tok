@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,14 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc8f05d8-ccd1-4165-b45f-91838c39f17d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tok.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/BaseUserRoleRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Cliente/AgentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Cliente/AgentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/AgentRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/BaseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BaseRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/BaseRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Contracts/BaseRepositoryInterface.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,18 +184,21 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="LogHighlighting" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Models" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Services" />
       <recent name="$PROJECT_DIR$/app/Repositories" />
       <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Repositories/Contracts" />
+      <recent name="$PROJECT_DIR$/app/Repositories" />
+      <recent name="$PROJECT_DIR$/app/Models" />
     </key>
   </component>
   <component name="RunManager">
@@ -424,18 +428,23 @@
     <option name="LAST_COMMIT_MESSAGE" value="chore(controller): fix typo" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="693" y="159" width="518" height="783" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598077212440">
+    <state x="761" y="239" width="389" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1598101527975">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="693" y="159" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598077212440" />
+    <state x="761" y="239" width="389" height="626" key="#com.intellij.ide.util.MemberChooser/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598101527975" />
+    <state x="693" y="159" width="858" height="898" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598101757115">
+      <screen x="0" y="28" width="1920" height="1052" />
+    </state>
+    <state x="693" y="159" width="858" height="898" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598101757115" />
     <state x="693" y="159" width="518" height="783" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598062633995" />
     <state x="693" y="312" width="526" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598076162868">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="693" y="312" width="526" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076162868" />
-    <state x="704" y="239" width="504" height="626" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#" timestamp="1598076394134">
+    <state x="655" y="161" width="504" height="626" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#" timestamp="1598101449818">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
+    <state x="655" y="161" width="504" height="626" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598101449818" />
     <state x="704" y="239" width="504" height="626" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076394134" />
     <state x="511" y="113" width="960" height="797" key="CommitChangelistDialog2" timestamp="1598077235382">
       <screen x="0" y="28" width="1920" height="1052" />
@@ -492,10 +501,10 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="842" y="472" width="228" height="161" key="VCS.EditChangelistDialog/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598077316453" />
-    <state x="539" y="288" width="802" height="532" key="Vcs.Push.Dialog.v2" timestamp="1598077236944">
+    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2" timestamp="1598100435764">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="539" y="288" key="Vcs.Push.Dialog.v2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598077236944" />
+    <state x="539" y="288" width="802" height="524" key="Vcs.Push.Dialog.v2/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598100435764" />
     <state x="539" y="288" width="802" height="532" key="Vcs.Push.Dialog.v2/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598076886765" />
     <state x="278" y="446" width="802" height="524" key="Vcs.Push.Dialog.v2/275.1080.1366.768/0.340.1920.740@0.340.1920.740" timestamp="1598054613633" />
     <state x="768" y="471" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598077355640">
@@ -507,9 +516,10 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="666" y="178" width="587" height="753" key="find.popup/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598068145071" />
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1598077083365">
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1598101341158">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052/0.1080.1366.768@0.28.1920.1052" timestamp="1598101341158" />
     <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/275.1080.1366.768/0.28.1920.1052@0.28.1920.1052" timestamp="1598077083365" />
   </component>
 </project>
