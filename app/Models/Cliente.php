@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use App\ClienteUser;
+use App\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cliente extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, UuidTrait;
+
+    public $incrementing = false;
 
     protected $table = 'clientes';
 
