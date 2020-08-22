@@ -78,9 +78,9 @@ class AuthController extends Controller
                 throw new \Exception('E-mail/Senha inválido(s)');
             }
 
-            $success['token']           = Auth::user()->createToken('authToken')->accessToken;
-            $success['user']            = Auth::user();
-            $success['user']['type']    = Auth::user()->roles()->first()->name;
+            $success['token']   = Auth::user()->createToken('authToken')->accessToken;
+            $success['user']    = Auth::user();
+            // $success['user']['type']    = Auth::user()->roles()->first()->name;
 
             return response()->json(['success' => $success], 200);
 
