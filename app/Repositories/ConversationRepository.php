@@ -17,8 +17,17 @@ final class ConversationRepository extends BaseRepository
         return Conversation::$status;
     }
 
-    public function updateOrCreate(array $params, array $values = [])
+    public function upsert(array $params, array $values = [])
     {
-        return Conversation::updateOrCreate($params, $values);
+        $conversation = Conversation::where($params)->first();
+
+        if (empty($conversation)) {
+            $params = array_merge($params, $values);
+            return Conversation::create($params);
+        }
+
+        $conversation->touch();
+
+        return $conversation;
     }
 }

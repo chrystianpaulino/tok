@@ -20,7 +20,7 @@ final class ConversationService extends BaseService implements UpsertServiceInte
 
     public function upsert(array $params, array $values = [])
     {
-        return $this->repository->updateOrCreate($params, $values);
+        return $this->repository->upsert($params, $values);
     }
 
     public function getStatusList(): array
