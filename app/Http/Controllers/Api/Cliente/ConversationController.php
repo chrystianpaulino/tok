@@ -72,7 +72,6 @@ class ConversationController extends Controller
     {
         $data = $request->validate([
             'agente_id'     => 'required',
-            'channel_id'    => 'required',
             'department_id' => 'required',
         ]);
 
