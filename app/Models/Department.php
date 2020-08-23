@@ -28,8 +28,9 @@ class Department extends Model
         $this->belongsTo(Cliente::class);
     }
 
-    public function channels()
-    {
-        $this->belongsToMany(Channel::class, ChannelDepartment::class);
-    }
+//    TODO: ajeitar
+//    public function channels()
+//    {
+//        $this->belongsToMany(Channel::class, ChannelDepartment::class);
+//    }
 }
