@@ -23,10 +23,7 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        // TODO: PADRAO AGENTE ?
-
         try {
-
             DB::beginTransaction();
 
             $request->validate([
@@ -55,12 +52,11 @@ class AuthController extends Controller
             $success['token'] = $user->createToken('authToken')->accessToken;
             $success['user']  = $user;
 
-            // TODO: UTILIZAR ESTE PADRAO NESTA CLASSE?
-            // \Bouncer::assign('agent')->to($user);
+            \Bouncer::assign('agente')->to($user);
 
             DB::commit();
-            return response()->json(['success' => $success], 200);
 
+            return response()->json(['success' => $success]);
         } catch (\Exception $exception) {
             DB::rollBack();
             Log::info($exception->getMessage());
