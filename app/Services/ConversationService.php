@@ -15,7 +15,10 @@ final class ConversationService extends BaseService implements UpsertServiceInte
 
     public function index()
     {
-        return $this->repository->orderBy('created_at')->all();
+        return $this->repository
+            ->with(['department', 'channel'])
+            ->orderBy('created_at')
+            ->all();
     }
 
     public function upsert(array $params, array $values = [])
