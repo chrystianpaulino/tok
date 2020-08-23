@@ -39,12 +39,12 @@ Route::middleware('auth:api')->group(function() {
                     'departments'   => 'DepartmentController',
                 ]);
             });
+            Route::prefix('relatorios')->group(function () {
+                Route::get('status', 'RelatorioController@status');
+            });
         });
-
     });
-
 });
-
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
