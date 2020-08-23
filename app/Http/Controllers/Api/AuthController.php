@@ -22,45 +22,39 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        try {
-            DB::beginTransaction();
+        DB::beginTransaction();
 
-            $request->validate([
-                'name'       => 'required|max:55',
-                'email'      => 'email|required|unique:users',
-                'password'   => 'required|confirmed',
-                'cliente_id' => 'required|exists:clientes,id',
-            ]);
+        $request->validate([
+            'name'       => 'required|max:55',
+            'email'      => 'email|required|unique:users',
+            'password'   => 'required|confirmed',
+            'cliente_id' => 'required|exists:clientes,id',
+        ]);
 
-            if ($request->avatar) {
-                $avatar = $this->service->uploadAvatarUser($request->get('avatar'));
-            }
-
-            $user = User::create([
-                'name'     => $request->get('name'),
-                'email'    => $request->get('email'),
-                'password' => $request->get('password'),
-                'avatar'   => $avatar ?? '',
-            ]);
-
-            ClienteUser::create([
-                'cliente_id' => $request->get('cliente_id'),
-                'user_id'    => $user->id,
-            ]);
-
-            $success['token'] = $user->createToken('authToken')->accessToken;
-            $success['user']  = $user;
-
-            \Bouncer::assign('agente')->to($user);
-
-            DB::commit();
-
-            return response()->json(['success' => $success]);
-        } catch (\Exception $exception) {
-            DB::rollBack();
-            Log::info($exception->getMessage());
-            return response()->json(['error' => $exception->getMessage()], 401);
+        if ($request->avatar) {
+            $avatar = $this->service->uploadAvatarUser($request->get('avatar'));
         }
+
+        $user = User::create([
+            'name'     => $request->get('name'),
+            'email'    => $request->get('email'),
+            'password' => $request->get('password'),
+            'avatar'   => $avatar ?? '',
+        ]);
+
+        ClienteUser::create([
+            'cliente_id' => $request->get('cliente_id'),
+            'user_id'    => $user->id,
+        ]);
+
+        $success['token'] = $user->createToken('authToken')->accessToken;
+        $success['user']  = $user;
+
+        \Bouncer::assign('agente')->to($user);
+
+        DB::commit();
+
+        return response()->json(['success' => $success]);
     }
 
     public function login(Request $request)
