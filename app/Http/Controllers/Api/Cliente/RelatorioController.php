@@ -6,12 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Conversation;
 use App\Models\Department;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class RelatorioController extends Controller
 {
-    public function status(Request $request)
+    public function status()
     {
         $conversations = DB::table('conversations')->select('status', DB::raw('count(id) as quantidade'))->groupBy('status')->get();
 
@@ -27,7 +26,7 @@ class RelatorioController extends Controller
         ];
     }
 
-    public function top(Request $request)
+    public function top()
     {
 
         $agentes = User::whereIs('agente')->withCount('conversations')
@@ -47,10 +46,9 @@ class RelatorioController extends Controller
     public function conversations()
     {
         return DB::table('conversations')
-            ->selectRaw('count(*) as total, DAY(created_at) as day')
+            ->selectRaw('count(*) as total, date_format(created_at, "%d/%m/%Y") as day')
             ->groupBy('day')
             ->orderBy('day', 'asc')
             ->get();
-
     }
 }
