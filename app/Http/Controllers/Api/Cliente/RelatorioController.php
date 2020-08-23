@@ -12,10 +12,11 @@ class RelatorioController extends Controller
 {
     public function status(Request $request)
     {
-        $conversations = DB::table('conversations')->select('status')->groupBy('status')->get();
+        $conversations = DB::table('conversations')->select('status', DB::raw('count(id) as quantidade'))->groupBy('status')->get();
+        $quantidade = count($conversations);
 
         foreach ($conversations as $index => $conversation) {
-            $conversation['status_name'] = Conversation::$status[$conversation['status']];
+            $conversation->status_name = Conversation::$status[$conversation->status];
         }
 
         $agente = User::whereIs('agente')->count();
