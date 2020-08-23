@@ -15,7 +15,11 @@ class User extends Authenticatable
 
     public    $incrementing = false;
     protected $keyType      = 'string';
-
+    protected $casts        = [
+        'id'                => 'string',
+        'email_verified_at' => 'datetime',
+    ];
+    
     protected $fillable = [
         'name',
         'email',
@@ -26,10 +30,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-    ];
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
     ];
 
     public function clientes()

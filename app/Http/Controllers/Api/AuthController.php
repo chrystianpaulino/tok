@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\ClienteUser;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -22,7 +23,6 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-
         // TODO: PADRAO AGENTE ?
 
         try {
@@ -37,28 +37,31 @@ class AuthController extends Controller
                 $avatar = $this->service->uploadAvatarUser($request->get('avatar'));
             }
 
-            $user = User::create([
-                'name'     => $request->get('name'),
-                'email'    => $request->get('email'),
-                'password' => $request->get('password'),
-                'avatar'   => $avatar ?? '',
-            ]);
+            DB::transaction(function () use ($request, $avatar) {
+                $user = User::create([
+                    'name'     => $request->get('name'),
+                    'email'    => $request->get('email'),
+                    'password' => $request->get('password'),
+                    'avatar'   => $avatar ?? '',
+                ]);
 
-            $user->clientes()->attach($request->get('cliente_id'));
+                ClienteUser::create([
+                    'cliente_id' => $request->get('cliente_id'),
+                    'user_id'    => $user->id,
+                ]);
 
-            $success['token'] = $user->createToken('authToken')->accessToken;
-            $success['user']  = $user;
+                $success['token'] = $user->createToken('authToken')->accessToken;
+                $success['user']  = $user;
 
-            // TODO: UTILIZAR ESTE PADRAO NESTA CLASSE?
-            // \Bouncer::assign('agent')->to($user);
+                // TODO: UTILIZAR ESTE PADRAO NESTA CLASSE?
+                // \Bouncer::assign('agent')->to($user);
 
-            return response()->json(['success' => $success], 200);
-
+                return response()->json(['success' => $success], 200);
+            });
         } catch (\Exception $exception) {
             Log::info($exception->getMessage());
             return response()->json(['error' => $exception->getMessage()], 401);
         }
-
     }
 
     public function login(Request $request)
