@@ -3,7 +3,9 @@
 namespace App\Repositories;
 
 use App\Models\Conversation;
+use App\Models\UserConversation;
 use App\Repositories\Abstracts\BaseRepository;
+use http\Client\Curl\User;
 use Illuminate\Support\Facades\Log;
 
 final class ConversationRepository extends BaseRepository
@@ -20,17 +22,15 @@ final class ConversationRepository extends BaseRepository
 
     public function upsert(array $params, array $values = [])
     {
-        Log::info("A");
         $conversation = Conversation::where($params)->first();
 
         if (empty($conversation)) {
-            Log::info("B");
-            $params = array_merge($params, $values);
-            return Conversation::create($params);
+            $params     = array_merge($params, $values);
+            $conversa   = Conversation::create($params);
+            return $conversa;
         }
 
         $conversation->touch();
-        Log::info("C");
 
         return $conversation;
     }

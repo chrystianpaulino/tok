@@ -41,6 +41,8 @@ Route::middleware('auth:api')->group(function() {
             });
             Route::prefix('relatorios')->group(function () {
                 Route::get('status', 'RelatorioController@status');
+                Route::get('top', 'RelatorioController@top');
+                Route::get('departamentos', 'RelatorioController@departamentos');
             });
         });
     });

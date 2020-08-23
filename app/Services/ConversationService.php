@@ -2,9 +2,13 @@
 
 namespace App\Services;
 
+use App\Models\UserConversation;
 use App\Repositories\ConversationRepository;
 use App\Services\Abstracts\BaseService;
 use App\Services\Contracts\UpsertServiceInterface;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Mockery\Exception;
 
 final class ConversationService extends BaseService implements UpsertServiceInterface
 {
@@ -24,6 +28,28 @@ final class ConversationService extends BaseService implements UpsertServiceInte
     public function upsert(array $params, array $values = [])
     {
         return $this->repository->upsert($params, $values);
+    }
+
+    public function update(array $params, $id)
+    {
+        try {
+
+            DB::beginTransaction();
+
+            if (isset($params['agente_id'])) {
+                UserConversation::create([
+                    'user_id'         => $params['agente_id'],
+                    'conversation_id' => $id
+                ]);
+            }
+
+            return $this->repository->updateById($id, $params);
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return $exception;
+        }
+
     }
 
     public function getStatusList(): array
