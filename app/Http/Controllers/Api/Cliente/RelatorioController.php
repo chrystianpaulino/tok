@@ -43,4 +43,14 @@ class RelatorioController extends Controller
     {
         return Department::withCount('conversations')->get();
     }
+
+    public function conversations()
+    {
+        return DB::table('conversations')
+            ->selectRaw('count(*) as total, DAY(created_at) as day')
+            ->groupBy('day')
+            ->orderBy('day', 'asc')
+            ->get();
+
+    }
 }
