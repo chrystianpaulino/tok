@@ -25,16 +25,16 @@ class Channel extends Model
 
     public function cliente()
     {
-        $this->belongsTo(Cliente::class);
+        return $this->belongsTo(Cliente::class);
     }
 
     public function departments()
     {
-        $this->hasMany(Department::class, 'channel_id', 'id');
+        return $this->hasMany(Department::class, 'channel_id', 'id');
     }
 
     public function conversations()
     {
-        $this->hasMany(Conversation::class, 'channel_id', 'id');
+        return $this->hasMany(Conversation::class, 'channel_id', 'id');
     }
 }

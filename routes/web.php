@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/testes', function () {
 
-    $conversation = \App\Models\Conversation::first();
-    dd($conversation, $conversation->channel_id, $conversation->channel());
+    $conversation = \App\Models\Conversation::with('channel')->first();
+    dd($conversation, $conversation->channel_id, $conversation->channel);
 
     $user =
 
