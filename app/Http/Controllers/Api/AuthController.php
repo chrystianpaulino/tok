@@ -22,39 +22,45 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        DB::beginTransaction();
+        try {
+            DB::beginTransaction();
 
-        $request->validate([
-            'name'       => 'required|max:55',
-            'email'      => 'email|required|unique:users',
-            'password'   => 'required|confirmed',
-            'cliente_id' => 'required|exists:clientes,id',
-        ]);
+            $request->validate([
+                'name'       => 'required|max:55',
+                'email'      => 'email|required|unique:users',
+                'password'   => 'required|confirmed',
+                'cliente_id' => 'required|exists:clientes,id',
+            ]);
 
-        if ($request->avatar) {
-            $avatar = $this->service->uploadAvatarUser($request->get('avatar'));
+            if ($request->avatar) {
+                $avatar = $this->service->uploadAvatarUser($request->get('avatar'));
+            }
+
+            $user = User::create([
+                'name'     => $request->get('name'),
+                'email'    => $request->get('email'),
+                'password' => $request->get('password'),
+                'avatar'   => $avatar ?? '',
+            ]);
+
+            ClienteUser::create([
+                'cliente_id' => $request->get('cliente_id'),
+                'user_id'    => $user->id,
+            ]);
+
+            $success['token'] = $user->createToken('authToken')->accessToken;
+            $success['user']  = $user;
+
+            \Bouncer::assign('agente')->to($user);
+
+            DB::commit();
+
+            return response()->json(['success' => $success]);
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::info($exception->getMessage());
+            return response()->json(['error' => $exception->getMessage()], 401);
         }
-
-        $user = User::create([
-            'name'     => $request->get('name'),
-            'email'    => $request->get('email'),
-            'password' => $request->get('password'),
-            'avatar'   => $avatar ?? '',
-        ]);
-
-        ClienteUser::create([
-            'cliente_id' => $request->get('cliente_id'),
-            'user_id'    => $user->id,
-        ]);
-
-        $success['token'] = $user->createToken('authToken')->accessToken;
-        $success['user']  = $user;
-
-        \Bouncer::assign('agente')->to($user);
-
-        DB::commit();
-
-        return response()->json(['success' => $success]);
     }
 
     public function login(Request $request)
@@ -75,13 +81,20 @@ class AuthController extends Controller
 
         $role = Auth::user()->roles()->get();
 
+        $cliente = DB::table('cliente_user')
+            ->select('cliente_id')
+            ->where('user_id', Auth::user()->id)
+            ->first();
+
         if (count($role)) {
             $success['user']['type'] = $role[0]->name;
         } else {
-            $success['user']['type'] = 'agent';
+            $success['user']['type'] = 'agente';
         }
 
-        return response()->json(['success' => $success], 200);
+        $success['user']['cliente_id'] = $cliente->cliente_id;
+
+        return response()->json(['success' => $success]);
     }
 
     public function logout(Request $request)

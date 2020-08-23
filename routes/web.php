@@ -17,7 +17,7 @@ Route::get('/testes', function () {
 
     $user =
 
-    $user = \App\Models\User::where('email', 'cliente@cliente.com')->first();
+    $user = \App\Models\User::where('email', 'matheus7@matheus.com')->first();
     dd($user->roles()->first()->name);
     \Bouncer::assign('admin')->to($user);
     dd($user);
