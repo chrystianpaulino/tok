@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name'     => 'Tok',
             'email'    => 'contato@tok.com',
-            'password' => bcrypt('123456')
+            'password' => '123456'
         ]);
 
         \Bouncer::assign('master')->to($user);
