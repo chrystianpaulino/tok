@@ -9,8 +9,7 @@ class UserObserver
     public function creating(Model $model): void
     {
         if ($model->isDirty('password')) {
-            $model->cep = bcrypt($model->password);
+            $model->password = bcrypt($model->password);
         }
     }
-
 }
