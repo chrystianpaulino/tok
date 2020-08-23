@@ -39,6 +39,7 @@ Route::middleware('auth:api')->group(function() {
         });
 
         Route::namespace('Cliente')->group(function () {
+            Route::get('users', 'UserController@index');
             // Controllers Within The "App\Http\Controllers\Api\Master" Namespace
             Route::resources([
                 'channels'      => 'ChannelController',
