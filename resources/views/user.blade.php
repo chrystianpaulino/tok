@@ -114,6 +114,7 @@
         chatbox.on("sendMessage", (message) => {
             console.log(message)
             axios.post('api/conversations', {
+                recent_message: message.message.text,
                 conversation_id: message.message.conversationId,
                 user_id: '12345678',
                 user_name: 'Chrystian Paulino',
