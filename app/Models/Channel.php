@@ -28,9 +28,8 @@ class Channel extends Model
         $this->belongsTo(Cliente::class);
     }
 
-//    TODO: ajeitar
-//    public function departments()
-//    {
-//        $this->belongsToMany(Department::class, ChannelDepartment::class);
-//    }
+    public function departments()
+    {
+        $this->hasMany(Department::class, 'channel_id', 'id');
+    }
 }
