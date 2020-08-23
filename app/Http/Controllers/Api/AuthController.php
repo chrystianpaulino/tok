@@ -54,6 +54,9 @@ class AuthController extends Controller
 
         \Bouncer::assign('agente')->to($user);
 
+        $success['user']['cliente_id'] = $request->get('cliente_id');
+        $success['user']['type'] = 'agente';
+
         DB::commit();
 
         return response()->json(['success' => $success]);
