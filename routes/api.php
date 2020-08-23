@@ -37,6 +37,7 @@ Route::middleware('auth:api')->group(function() {
                 Route::resources([
                     'channels'      => 'ChannelController',
                     'departments'   => 'DepartmentController',
+                    'agents'        => 'AgentController',
                 ]);
             });
             Route::prefix('relatorios')->group(function () {
