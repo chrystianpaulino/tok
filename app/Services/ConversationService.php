@@ -37,14 +37,18 @@ final class ConversationService extends BaseService implements UpsertServiceInte
             DB::beginTransaction();
 
             if (isset($params['agente_id'])) {
-                UserConversation::create([
-                    'user_id'         => $params['agente_id'],
-                    'conversation_id' => $id
-                ]);
+                $userConversation                   = new UserConversation();
+                $userConversation->user_id          = $params['agente_id'];
+                $userConversation->conversation_id  = $id;
+                $userConversation->save();
             }
 
-            return $this->repository->updateById($id, $params);
+            $return = $this->repository->updateById($id, $params);
+
             DB::commit();
+
+            return $return;
+
         } catch (\Exception $exception) {
             DB::rollBack();
             return $exception;
