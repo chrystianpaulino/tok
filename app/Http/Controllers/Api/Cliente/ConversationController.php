@@ -27,14 +27,22 @@ class ConversationController extends Controller
             'telefone'      => 'required',
             'cpf'           => 'required',
             'department_id' => 'required',
+            'channel_id'    => 'required',
         ]);
 
-        $result = $this->service->store($request->all());
+        $result = $this->service->upsert($request->all());
         return response()->json($result);
     }
 
     public function update(Request $request, $id)
     {
+        $status = $this->service->getStatusWithJoin(true);
+
+        $request->validate([
+            'agente_id' => 'required',
+            'status'    => 'required|in:' . $status,
+        ]);
+
         $result = $this->service->update($request->all(), $id);
         return response()->json($result);
     }

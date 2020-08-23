@@ -11,4 +11,14 @@ final class ConversationRepository extends BaseRepository
     {
         $this->model = new Conversation();
     }
+
+    public function getStatusList(): array
+    {
+        return Conversation::$status;
+    }
+
+    public function updateOrCreate(array $params, array $values = [])
+    {
+        return Conversation::updateOrCreate($params, $values);
+    }
 }
