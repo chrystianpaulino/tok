@@ -20,7 +20,8 @@ class Department extends Model
     protected $fillable = [
         'name',
         'status',
-        'cliente_id'
+        'cliente_id',
+        'channel_id'
     ];
 
     public function cliente()
@@ -28,8 +29,4 @@ class Department extends Model
         $this->belongsTo(Cliente::class);
     }
 
-    public function channels()
-    {
-        $this->belongsToMany(Channel::class, ChannelDepartment::class);
-    }
 }

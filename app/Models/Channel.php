@@ -30,6 +30,6 @@ class Channel extends Model
 
     public function departments()
     {
-        $this->belongsToMany(Department::class, ChannelDepartment::class);
+        $this->hasMany(Department::class, 'channel_id', 'id');
     }
 }
