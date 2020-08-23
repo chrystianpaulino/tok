@@ -18,6 +18,8 @@ Route::namespace('Api')->group(function () {
     // Controllers Within The "App\Http\Controllers\Api" Namespace
     Route::post('/register'     , 'AuthController@register'         )->name('register');
     Route::post('/login'        , 'AuthController@login'            )->name('login');
+    Route::resource('conversations', 'Cliente\ConversationController', ['as' => 'conversations']);
+
 });
 
 Route::middleware('auth:api')->group(function() {
@@ -40,7 +42,6 @@ Route::middleware('auth:api')->group(function() {
             Route::resources([
                 'channels'      => 'ChannelController',
                 'departments'   => 'DepartmentController',
-                'conversations' => 'ConversationController',
             ]);
         });
 
