@@ -19,7 +19,7 @@ class User extends Authenticatable
         'id'                => 'string',
         'email_verified_at' => 'datetime',
     ];
-    
+
     protected $fillable = [
         'name',
         'email',
@@ -34,11 +34,11 @@ class User extends Authenticatable
 
     public function clientes()
     {
-        $this->belongsToMany(Cliente::class, 'cliente_user');
+        return $this->belongsToMany(Cliente::class, 'cliente_user');
     }
 
     public function conversations()
     {
-        $this->belongsToMany(Conversation::class, UserConversation::class);
+        return $this->belongsToMany(Conversation::class, UserConversation::class);
     }
 }

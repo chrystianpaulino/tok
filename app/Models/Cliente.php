@@ -23,11 +23,11 @@ class Cliente extends Model
 
     public function channel()
     {
-        $this->hasMany(Channel::class);
+        return $this->hasMany(Channel::class);
     }
 
     public function users()
     {
-        $this->belongsToMany(User::class, 'cliente_user');
+        return $this->belongsToMany(User::class, 'cliente_user');
     }
 }

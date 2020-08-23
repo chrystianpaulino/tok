@@ -69,9 +69,9 @@
         // TODO: replace the fields below with actual user data.
         var me = new Talk.User({
             // must be any value that uniquely identifies this user
-            id: "1234562",
-            name: "George Looney 3",
-            email: "george@looney.net",
+            id: "101010",
+            name: "RAMONZIN",
+            email: "ramonzin@ramonzin.com",
             photoUrl: "https://talkjs.com/docs/img/george.jpg"
         });
         // TODO: add a "configuration" field to the user object so your
@@ -104,23 +104,24 @@
 
         // You control the ID of a conversation. In this example, we use the item ID as
         // the conversation ID in order to tie this conversation to this item.
-        var conversation = window.talkSession.getOrCreateConversation("item_2493");
+    var conversation = talkSession.getOrCreateConversation(Talk.oneOnOneId(me, operator))
         conversation.setParticipant(me);
         conversation.setParticipant(operator);
 
         var chatbox = window.talkSession.createChatbox(conversation);
         chatbox.mount(document.getElementById("talkjs-container"));
 
+        // getOrCreateConversation, provavelmente ira pegar o usuario(me) e o usuario(agente)
         chatbox.on("sendMessage", (message) => {
             console.log(message)
             axios.post('api/conversations', {
                 recent_message: message.message.text,
                 conversation_id: message.message.conversationId,
-                user_id: '12345679',
-                user_name: 'Chrystian Paulino',
-                user_email: 'chrystian@bee.com.br',
+                user_id: '101010',
+                user_name: 'RAMONZIN',
+                user_email: 'ramonzin@ramonzin.com',
                 user_telefone: '84987195148',
-                user_cpf: '10709437465',
+                user_cpf: '10709437411',
                 department_id: '2b0178f3-cd6a-445d-afd7-afc66f09006e',
                 cliente_id: 'af710b12-a111-4717-a466-36f303cb0d65',
                 channel_id: 'c65049cd-4dae-4689-b3e4-c62367dbdfc5',
