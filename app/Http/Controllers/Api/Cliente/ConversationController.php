@@ -57,12 +57,12 @@ class ConversationController extends Controller
     {
         $status = $this->service->getStatusWithJoin(true);
 
-        $request->validate([
+        $data = $request->validate([
             'agente_id' => 'required',
             'status'    => 'required|in:' . $status,
         ]);
 
-        $result = $this->service->update($request->all(), $id);
+        $result = $this->service->update($data, $id);
         return response()->json($result);
     }
 }
