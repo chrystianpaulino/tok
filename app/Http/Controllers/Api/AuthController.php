@@ -26,6 +26,9 @@ class AuthController extends Controller
         // TODO: PADRAO AGENTE ?
 
         try {
+
+            DB::beginTransaction();
+
             $request->validate([
                 'name'       => 'required|max:55',
                 'email'      => 'email|required|unique:users',
@@ -37,28 +40,29 @@ class AuthController extends Controller
                 $avatar = $this->service->uploadAvatarUser($request->get('avatar'));
             }
 
-            DB::transaction(function () use ($request, $avatar) {
-                $user = User::create([
-                    'name'     => $request->get('name'),
-                    'email'    => $request->get('email'),
-                    'password' => $request->get('password'),
-                    'avatar'   => $avatar ?? '',
-                ]);
+            $user = User::create([
+                'name'     => $request->get('name'),
+                'email'    => $request->get('email'),
+                'password' => $request->get('password'),
+                'avatar'   => $avatar ?? '',
+            ]);
 
-                ClienteUser::create([
-                    'cliente_id' => $request->get('cliente_id'),
-                    'user_id'    => $user->id,
-                ]);
+            ClienteUser::create([
+                'cliente_id' => $request->get('cliente_id'),
+                'user_id'    => $user->id,
+            ]);
 
-                $success['token'] = $user->createToken('authToken')->accessToken;
-                $success['user']  = $user;
+            $success['token'] = $user->createToken('authToken')->accessToken;
+            $success['user']  = $user;
 
-                // TODO: UTILIZAR ESTE PADRAO NESTA CLASSE?
-                // \Bouncer::assign('agent')->to($user);
+            // TODO: UTILIZAR ESTE PADRAO NESTA CLASSE?
+            // \Bouncer::assign('agent')->to($user);
 
-                return response()->json(['success' => $success], 200);
-            });
+            DB::commit();
+            return response()->json(['success' => $success], 200);
+
         } catch (\Exception $exception) {
+            DB::rollBack();
             Log::info($exception->getMessage());
             return response()->json(['error' => $exception->getMessage()], 401);
         }
