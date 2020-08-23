@@ -19,6 +19,7 @@ Route::namespace('Api')->group(function () {
     Route::post('/register'     , 'AuthController@register'         )->name('register');
     Route::post('/login'        , 'AuthController@login'            )->name('login');
     Route::resource('conversations', 'Cliente\ConversationController', ['as' => 'conversations']);
+    Route::put('conversations/transfer/:id', 'Cliente\ConversationController.transfer');
 
 });
 
