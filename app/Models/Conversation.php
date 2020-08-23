@@ -10,20 +10,26 @@ class Conversation extends Model
 {
     use SoftDeletes, UuidTrait;
 
-    public    $incrementing = false;
-    protected $keyType      = 'string';
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     protected $table = 'conversations';
 
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
+        'user_id',
+        'conversation_id',
+        'user_department_id',
+        'agent_id',
         'channel_id',
         'department_id',
         'cliente_id',
-        'name',
-        'cpf',
-        'telefone',
+        'user_name',
+        'user_cpf',
+        'user_telefone',
+        'user_foto',
+        'user_email',
         'status',
     ];
 
