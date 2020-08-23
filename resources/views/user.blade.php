@@ -69,9 +69,9 @@
         // TODO: replace the fields below with actual user data.
         var me = new Talk.User({
             // must be any value that uniquely identifies this user
-            id: "101010",
-            name: "RAMONZIN",
-            email: "ramonzin@ramonzin.com",
+            id: '{{Request::get('userId')}}',
+            name: '{{Request::get('name')}}',
+            email: '{{Request::get('email')}}',
             photoUrl: "https://talkjs.com/docs/img/george.jpg"
         });
         // TODO: add a "configuration" field to the user object so your
@@ -113,21 +113,22 @@
 
         // getOrCreateConversation, provavelmente ira pegar o usuario(me) e o usuario(agente)
         chatbox.on("sendMessage", (message) => {
+            console.log('sendMessage')
             console.log(message)
             axios.post('api/conversations', {
                 recent_message: message.message.text,
-                conversation_id: message.message.conversationId,
-                user_id: '101010',
-                user_name: 'RAMONZIN',
-                user_email: 'ramonzin@ramonzin.com',
+                conversation_id: message?.message?.conversationId || null,
+                user_id: '{{Request::get('userId')}}',
+                user_name: '{{Request::get('name')}}',
+                user_email: '{{Request::get('email')}}',
                 user_telefone: '84987195148',
-                user_cpf: '10709437411',
+                user_cpf: '{{Request::get('cpf')}}',
                 department_id: '2b0178f3-cd6a-445d-afd7-afc66f09006e',
                 cliente_id: 'af710b12-a111-4717-a466-36f303cb0d65',
                 channel_id: 'c65049cd-4dae-4689-b3e4-c62367dbdfc5',
             })
                 .then(function (response) {
-                    console.log(response)
+                    console.log('success')
                 })
                 .catch(function (error) {
                     console.log(error);

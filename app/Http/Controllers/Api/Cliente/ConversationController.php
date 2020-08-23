@@ -30,7 +30,7 @@ class ConversationController extends Controller
             'user_email'      => 'required',
             'department_id'   => 'required',
             'channel_id'      => 'required',
-            'conversation_id' => 'required',
+            'conversation_id' => 'nullable',
             'cliente_id'      => 'required',
         ]);
 
