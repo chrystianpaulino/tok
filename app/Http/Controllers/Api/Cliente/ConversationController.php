@@ -68,14 +68,14 @@ class ConversationController extends Controller
         return response()->json($result);
     }
 
-    public function transfer(Request $request, $id)
+    public function transfer(Request $request)
     {
         $data = $request->validate([
             'agente_id'     => 'required',
             'department_id' => 'required',
         ]);
 
-        $result = $this->service->update($data, $id);
+        $result = $this->service->update($data, $request->get('id'));
         return response()->json($result);
     }
 }

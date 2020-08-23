@@ -9,8 +9,8 @@ Route::namespace('Api')->group(function () {
     Route::post('/login'        , 'AuthController@login'            )->name('login');
 
     Route::middleware(['cliente'])->group(function () {
-        Route::resource('conversations', 'Cliente\ConversationController', ['as' => 'conversations']);
-        Route::put('conversations/transfer/:id', 'Cliente\ConversationController@transfer');
+        Route::resource('conversations' , 'Cliente\ConversationController', ['as' => 'conversations']);
+        Route::post('conversations/transfer', 'Cliente\ConversationController@transfer');
     });
 
 });
