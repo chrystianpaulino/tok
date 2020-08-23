@@ -10,8 +10,8 @@ class Conversation extends Model
 {
     use SoftDeletes, UuidTrait;
 
-    public $incrementing = false;
-    protected $keyType = 'string';
+    public    $incrementing = false;
+    protected $keyType      = 'string';
 
     protected $table = 'conversations';
 
@@ -35,6 +35,16 @@ class Conversation extends Model
     ];
 
     protected $appends = ['statusFormatted'];
+
+    protected static function booted()
+    {
+        $last_status = array_keys(self::$status);
+        $last_status = end($last_status);
+
+        static::addGlobalScope('status', function ($builder) use ($last_status) {
+            $builder->where('status', '!=', $last_status);
+        });
+    }
 
     public static $status = [
         '01' => 'Esperando Atendimento',
@@ -62,7 +72,7 @@ class Conversation extends Model
 
     public function channel()
     {
-        return$this->belongsTo(Channel::class);
+        return $this->belongsTo(Channel::class);
     }
 
     public function users()
