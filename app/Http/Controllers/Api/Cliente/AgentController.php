@@ -19,51 +19,28 @@ class AgentController extends Controller
     public function invite()
     {
         // TODO: MELHOR MANEIRA DE SCOPAR CLIENTE_ID, POIS EM TUDO UTILIZA
-        try {
-            $invite     = sha1(Carbon::now()->format('HuYisdmisumYsdH'));
-            $clienteId  = '';
-            $base_url   = url('/invitation/'.$clienteId.'/'.$invite);
-            return response()->json($base_url);
-        } catch (\Exception $exception) {
-            return response()->json($exception->getMessage(), 400);
-        }
+        $invite    = sha1(Carbon::now()->format('HuYisdmisumYsdH'));
+        $clienteId = '';
+        $base_url  = url('/invitation/' . $clienteId . '/' . $invite);
+        return response()->json($base_url);
     }
 
     public function index()
     {
-        try {
-            return response()->json($this->service->index());
-        } catch (\Exception $exception) {
-            return response()->json($exception->getMessage(), 400);
-        }
+        return response()->json($this->service->index());
     }
 
     public function store(Request $request)
     {
         // TODO: CRIAR USUÁRIO AQUI E DEPOIS DESIGNAR ROLE DE AGENTE?
-        try {
-            $user = $request->user();
-            \Bouncer::assign('agent')->to($user);
-
-            /*$request->validate([
-                'name' => 'required',
-            ]);
-
-            $result = $this->service->store($request->all());*/
-            return response()->json($user);
-        } catch (\Exception $exception) {
-            return response()->json($exception->getMessage(), 400);
-        }
+        $user = $request->user();
+        \Bouncer::assign('agente')->to($user);
+        return response()->json($user);
     }
 
     public function update(Request $request, $id)
     {
-        try {
-            $result = $this->service->update($request->all(), $id);
-            return response()->json($result);
-        } catch (\Exception $exception) {
-            return response()->json($exception->getMessage(), 400);
-        }
+        $result = $this->service->update($request->all(), $id);
+        return response()->json($result);
     }
-
 }

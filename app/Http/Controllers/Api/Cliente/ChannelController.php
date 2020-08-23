@@ -17,19 +17,15 @@ class ChannelController extends Controller
 
     public function index()
     {
-        try {
-            return response()->json($this->service->index());
-        } catch (\Exception $exception) {
-            return response()->json($exception->getMessage(), 400);
-        }
+        return response()->json($this->service->index());
     }
 
     public function store(Request $request)
     {
         try {
             $request->validate([
-                'name'          => 'required',
-                'cliente_id'    => 'required'
+                'name'       => 'required',
+                'cliente_id' => 'required'
             ]);
 
             $result = $this->service->store($request->all());

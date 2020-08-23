@@ -17,39 +17,25 @@ class ClienteController extends Controller
 
     public function index()
     {
-        try {
-            $result = $this->service->index();
-            return response()->json($result);
-        } catch (\Exception $exception) {
-            return response()->json($exception->getMessage(), 400);
-        }
+        $result = $this->service->index();
+        return response()->json($result);
     }
 
     public function store(Request $request)
     {
-        // TODO: AO CRIAR CLIENTE, TAMBÉM TEMOS QUE ALIMENTAR A TABELA CLIENTE_USER;
-        try {
-            $request->validate([
-                'name'      => 'required',
-                'email'     => 'email|required',
-                'password'  => 'required',
-            ]);
+        $request->validate([
+            'name'     => 'required',
+            'email'    => 'email|required',
+            'password' => 'required',
+        ]);
 
-            $result = $this->service->store($request->all());
-            return response()->json($result);
-        } catch (\Exception $exception) {
-            return response()->json($exception->getMessage(), 400);
-        }
+        $result = $this->service->store($request->all());
+        return response()->json($result);
     }
 
     public function update(Request $request, $id)
     {
-        try {
-            $result = $this->service->update($request->all(), $id);
-            return response()->json($result);
-        } catch (\Exception $exception) {
-            return response()->json($exception->getMessage(), 400);
-        }
+        $result = $this->service->update($request->all(), $id);
+        return response()->json($result);
     }
-
 }
