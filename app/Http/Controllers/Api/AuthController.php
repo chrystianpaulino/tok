@@ -55,7 +55,7 @@ class AuthController extends Controller
         \Bouncer::assign('agente')->to($user);
 
         $success['user']['cliente_id'] = $request->get('cliente_id');
-        $success['user']['type'] = 'agente';
+        $success['user']['type']       = 'agente';
 
         DB::commit();
 
@@ -80,18 +80,20 @@ class AuthController extends Controller
 
         $role = Auth::user()->roles()->get();
 
-        $cliente = DB::table('cliente_user')
-            ->select('cliente_id')
-            ->where('user_id', Auth::user()->id)
-            ->first();
+        if (!Auth::user()->isAn('master')) {
+            $cliente = DB::table('cliente_user')
+                ->select('cliente_id')
+                ->where('user_id', Auth::user()->id)
+                ->first();
 
-        if (count($role)) {
-            $success['user']['type'] = $role[0]->name;
-        } else {
-            $success['user']['type'] = 'agente';
+            if (count($role)) {
+                $success['user']['type'] = $role[0]->name;
+            } else {
+                $success['user']['type'] = 'agente';
+            }
+
+            $success['user']['cliente_id'] = $cliente->cliente_id;
         }
-
-        $success['user']['cliente_id'] = $cliente->cliente_id;
 
         return response()->json(['success' => $success]);
     }
