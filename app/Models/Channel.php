@@ -32,4 +32,9 @@ class Channel extends Model
     {
         $this->hasMany(Department::class, 'channel_id', 'id');
     }
+
+    public function conversations()
+    {
+        $this->hasMany(Conversation::class, 'channel_id', 'id');
+    }
 }
