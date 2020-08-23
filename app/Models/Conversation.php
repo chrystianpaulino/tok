@@ -31,6 +31,7 @@ class Conversation extends Model
         'user_foto',
         'user_email',
         'status',
+        'recent_message'
     ];
 
     protected $appends = ['statusFormatted'];

@@ -44,9 +44,10 @@ class ConversationController extends Controller
         ];
 
         $data = [
-            'user_telefone' => $request->get('user_telefone'),
-            'user_name'     => $request->get('user_name'),
-            'user_id'       => $request->get('user_id'),
+            'user_telefone'  => $request->get('user_telefone'),
+            'user_name'      => $request->get('user_name'),
+            'user_id'        => $request->get('user_id'),
+            'recent_message' => $request->get('recent_message'),
         ];
 
         $result = $this->service->upsert($exists, $data);
