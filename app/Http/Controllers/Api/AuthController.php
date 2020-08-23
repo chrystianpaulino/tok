@@ -27,9 +27,10 @@ class AuthController extends Controller
 
         try {
             $request->validate([
-                'name'     => 'required|max:55',
-                'email'    => 'email|required|unique:users',
-                'password' => 'required|confirmed'
+                'name'       => 'required|max:55',
+                'email'      => 'email|required|unique:users',
+                'password'   => 'required|confirmed',
+                'cliente_id' => 'required|exists:clientes,id',
             ]);
 
             if ($request->avatar) {
@@ -42,6 +43,8 @@ class AuthController extends Controller
                 'password' => $request->get('password'),
                 'avatar'   => $avatar ?? '',
             ]);
+
+            $user->clientes()->attach($request->get('cliente_id'));
 
             $success['token'] = $user->createToken('authToken')->accessToken;
             $success['user']  = $user;
