@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Conversation::class, 'user_conversation');
     }
+
+    public function channels()
+    {
+        return $this->hasManyThrough(Channel::class, Department::class);
+    }
 }
