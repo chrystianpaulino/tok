@@ -9,6 +9,7 @@ use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -27,10 +28,11 @@ class AuthController extends Controller
         $request->validate([
             'name'       => 'required|max:55',
             'email'      => 'email|required|unique:users',
-            'password'   => 'required|confirmed',
+            'password'   => 'required',
             'cliente_id' => 'required|exists:clientes,id',
         ]);
 
+        $avatar = '';
         if ($request->avatar) {
             $avatar = $this->service->uploadAvatarUser($request->get('avatar'));
         }
