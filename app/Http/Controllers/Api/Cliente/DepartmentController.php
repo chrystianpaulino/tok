@@ -15,9 +15,13 @@ class DepartmentController extends Controller
         $this->service = $service;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json($this->service->index());
+        $request->validate([
+            'channel_id' => 'required',
+        ]);
+
+        return response()->json($this->service->indexDepartamentos($request->get('channel_id')));
     }
 
     public function store(Request $request)
