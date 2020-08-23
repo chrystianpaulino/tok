@@ -48,7 +48,7 @@ class RelatorioController extends Controller
         return DB::table('conversations')
             ->selectRaw('count(*) as total, date_format(created_at, "%d/%m/%Y") as day')
             ->groupBy('day')
-            ->orderBy('day', 'asc')
+            ->orderByRaw('date_format(day, "%Y-%m-%d")', 'asc')
             ->get();
     }
 }
