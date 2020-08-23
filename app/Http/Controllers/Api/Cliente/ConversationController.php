@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Cliente;
 use App\Http\Controllers\Controller;
 use App\Services\ConversationService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ConversationController extends Controller
 {
@@ -59,8 +60,8 @@ class ConversationController extends Controller
         $status = $this->service->getStatusWithJoin(true);
 
         $data = $request->validate([
-            'agente_id' => 'required',
-            'status'    => 'required|in:' . $status,
+            'agente_id'       => 'required',
+            'status'          => 'required|in:' . $status,
         ]);
 
         $result = $this->service->update($data, $id);

@@ -33,7 +33,6 @@ final class ConversationService extends BaseService implements UpsertServiceInte
     public function update(array $params, $id)
     {
         try {
-
             DB::beginTransaction();
 
             if (isset($params['agente_id'])) {
